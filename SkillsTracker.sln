@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.Entities", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.Entities", "SkillsTracker.Entities\SkillsTracker.Entities.csproj", "{1F9C4717-FC03-4793-AE4E-75DF1C04A257}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.IRepositories", "SkillsTracker.IRepositories", "{D696CA38-72E3-427F-A711-3DFD9CA532A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.IRepositories", "SkillsTracker.IRepositories\SkillsTracker.IRepositories.csproj", "{D798FFC9-C796-40A3-862F-8C71AFD21D5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{1F9C4717-FC03-4793-AE4E-75DF1C04A257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F9C4717-FC03-4793-AE4E-75DF1C04A257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F9C4717-FC03-4793-AE4E-75DF1C04A257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D798FFC9-C796-40A3-862F-8C71AFD21D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D798FFC9-C796-40A3-862F-8C71AFD21D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D798FFC9-C796-40A3-862F-8C71AFD21D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D798FFC9-C796-40A3-862F-8C71AFD21D5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0F022810-A647-44DF-80FC-E138196D08E5} = {3BB090ED-0582-4B08-9592-80AAAD8DBDD6}
 		{1F9C4717-FC03-4793-AE4E-75DF1C04A257} = {AB10A7D1-DC43-46FF-B2C0-9204EC083C74}
+		{D798FFC9-C796-40A3-862F-8C71AFD21D5C} = {D696CA38-72E3-427F-A711-3DFD9CA532A8}
 	EndGlobalSection
 EndGlobal
