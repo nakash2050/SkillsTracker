@@ -49,9 +49,17 @@
     <Compile Include="SkillsBAL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SkillsTracker.DAL\SkillsTracker.DAL.csproj">
+      <Project>{0F022810-A647-44DF-80FC-E138196D08E5}</Project>
+      <Name>SkillsTracker.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SkillsTracker.Entities\SkillsTracker.Entities.csproj">
       <Project>{1F9C4717-FC03-4793-AE4E-75DF1C04A257}</Project>
       <Name>SkillsTracker.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SkillsTracker.IRepositories\SkillsTracker.IRepositories.csproj">
+      <Project>{d798ffc9-c796-40a3-862f-8c71afd21d5c}</Project>
+      <Name>SkillsTracker.IRepositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

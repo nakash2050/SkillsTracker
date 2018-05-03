@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.Tests", "Skil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.Tests", "SkillsTracker.Tests\SkillsTracker.Tests.csproj", "{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.API", "SkillsTracker.API", "{05CC98D6-5890-45FE-A8B7-26DA3F547651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.API", "SkillsTracker.API\SkillsTracker.API.csproj", "{F220E73A-C168-4679-8BD0-9F17EA257003}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F220E73A-C168-4679-8BD0-9F17EA257003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F220E73A-C168-4679-8BD0-9F17EA257003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F220E73A-C168-4679-8BD0-9F17EA257003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F220E73A-C168-4679-8BD0-9F17EA257003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +67,6 @@ Global
 		{D798FFC9-C796-40A3-862F-8C71AFD21D5C} = {D696CA38-72E3-427F-A711-3DFD9CA532A8}
 		{9553B55F-280D-4893-AFC7-326F7AD9C3F9} = {AB2D3B43-C280-47A7-9BCB-4C80AEAD8EE7}
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA} = {39658B31-BA48-46D7-B729-C8C5D7D3AB0D}
+		{F220E73A-C168-4679-8BD0-9F17EA257003} = {05CC98D6-5890-45FE-A8B7-26DA3F547651}
 	EndGlobalSection
 EndGlobal

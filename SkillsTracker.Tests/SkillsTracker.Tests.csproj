@@ -45,6 +45,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.5\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -64,6 +67,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SkillsTracker.API\SkillsTracker.API.csproj">
+      <Project>{F220E73A-C168-4679-8BD0-9F17EA257003}</Project>
+      <Name>SkillsTracker.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SkillsTracker.BAL\SkillsTracker.BAL.csproj">
       <Project>{9553b55f-280d-4893-afc7-326f7ad9c3f9}</Project>
       <Name>SkillsTracker.BAL</Name>
@@ -72,6 +79,9 @@
       <Project>{1f9c4717-fc03-4793-ae4e-75df1c04a257}</Project>
       <Name>SkillsTracker.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

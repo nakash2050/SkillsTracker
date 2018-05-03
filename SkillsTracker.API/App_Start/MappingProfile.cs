@@ -2,7 +2,7 @@
 using SkillsTracker.Entities;
 using SkillsTracker.Entities.DTO;
 
-namespace SkillsTracker.Tests
+namespace SkillsTracker.API.App_Start
 {
     public class MappingProfile : Profile
     {
