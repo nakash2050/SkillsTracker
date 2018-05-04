@@ -1,0 +1,28 @@
+<div>
+  <div class="category-title">Add Skill</div>
+  <br>
+  <form class="form-horizontal">
+      <label for="inputEmail" class="col-md-2 control-label">Skill Name</label>
+      <div class="form-inline">
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="inputEmail" placeholder="Enter skill name" style="width:80%">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default">Clear</button>
+        </div>
+      </div>
+   </form>
+   <br><br><br>
+   <div class="col-md-7 col-md-offset-2">
+      <div class="form-inline" *ngFor="let skill of skills">
+          <div>
+              <div class="alert alert-success">
+                  <span class="category">{{ skill.skillName }}</span>          
+                  <div class="pull-right category-btns">
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </div>
+                </div>
+          </div>
+        </div>
+   </div>
+</div>

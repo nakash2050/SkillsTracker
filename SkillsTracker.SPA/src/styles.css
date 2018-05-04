@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    padding: 50px;
+}
+
+.main-panel-heading {
+  font-family: 'Graduate', sans-serif;
+  background-color:  #6d84b4;
+  font-size: 30px;
+  text-align: center;
+}
+
+.nav {
+  padding: 10px;
+  background-color: #464545;
+  border-color: #464545;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.nav li a {
+  color: white;
+}
+
+.nav li a:hover {
+  color: white;
+}
+
+.create-title {
+  padding: 10px;
+  background-color: #dfe3ee;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+.help-block {
+font-size: 12px;
+font-family: 'Oswald', sans-serif;  
+}
+
+.add-category {
+font-family: 'Oswald', sans-serif;  
+}
+
+.workout-btns {
+  font-family: 'Oswald', sans-serif;
+  width: 100px;
+}
+
+.scrollable-panel{
+  max-height: 500px;
+  overflow: auto;
+}
+
+.workout-success {
+  font-family: 'Oswald', sans-serif; 
+  color: gold;
+}
+
+.category-title {
+  padding: 10px;
+  background-color: #dfe3ee;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+.category {
+  font-family: 'Anton', sans-serif;
+  color: black;
+}
+
+.category-btns {
+  position: relative;
+  bottom:5px;
+}
+
+.modal-category {
+  padding: 10px;
+}
+
+.category-focus{
+  border: thin solid black;
+}
+
+.workout-panel-heading {
+  color:black !important;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  background-color: #2acef1 !important;
+}
+
+.workout-init {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-workout-md {
+  width: 100px;
+}
+
+#style-3::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+width: 3px;
+background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+background-color: #000000;
+}
