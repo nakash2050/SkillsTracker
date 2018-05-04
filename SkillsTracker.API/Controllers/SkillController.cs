@@ -25,6 +25,16 @@ namespace SkillsTracker.API.Controllers
             return Ok(skills);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            var result = _skillsBAL.GetSkill(id);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
+
         public IHttpActionResult Post(SkillDTO skillDTO)
         {
             IEnumerable<SkillDTO> skills = null;
@@ -40,6 +50,21 @@ namespace SkillsTracker.API.Controllers
             }
 
             return Ok(skills);
+        }
+
+        public IHttpActionResult Put(int id, SkillDTO skillDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = _skillsBAL.UpdateSkill(id, skillDTO);
+            return Ok(result);
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var result = _skillsBAL.DeleteSkill(id);
+            return Ok(result);
         }
     }
 }

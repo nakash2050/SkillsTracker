@@ -32,5 +32,52 @@ namespace SkillsTracker.BAL
                 return result;
             }
         }
+
+        public SkillDTO GetSkill(int id)
+        {
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                var result = unitOfWork.Skills.Get(id);
+                var category = Mapper.Map<SkillDTO>(result);
+                return category;
+            }
+        }
+
+        public bool UpdateSkill(int id, SkillDTO skillDTO)
+        {
+            int result = 0;
+
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                var skillInDB = unitOfWork.Skills.Get(id);
+
+                if (skillInDB != null)
+                {
+                    skillDTO.SkillId = id;
+                    Mapper.Map(skillDTO, skillInDB);
+                    result = unitOfWork.Complete();
+                }
+
+                return result == 1;
+            }
+        }
+
+        public bool DeleteSkill(int id)
+        {
+            int result = 0;
+
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                var skill = unitOfWork.Skills.Get(id);
+
+                if (skill != null)
+                {
+                    unitOfWork.Skills.Remove(skill);
+                    result = unitOfWork.Complete();
+                }
+
+                return result == 1;
+            }
+        }
     }
 }
