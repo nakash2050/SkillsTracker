@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootswatch/darkly/bootstrap.min.css"
+        "../node_modules/bootswatch/flatly/bootstrap.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

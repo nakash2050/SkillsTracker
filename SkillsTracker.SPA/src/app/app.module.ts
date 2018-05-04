@@ -10,6 +10,7 @@ import { AddSkillComponent } from './_components/add-skill/add-skill.component';
 import { SkillService } from './_services/skill.service';
 import { ContentEditableModelDirective } from './_directives/content-editable-model.directive';
 import { HomeComponent } from './_components/home/home.component';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: "addskill", component: AddSkillComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     AddSkillComponent,
     ContentEditableModelDirective,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [  
     BrowserModule,
