@@ -41,7 +41,7 @@ namespace SkillsTracker.Tests
         }
 
         [TestMethod]
-        public void GetSkills_All_ReturnsAllCategories()
+        public void GetSkills_All_ReturnsAllSkills()
         {
             IHttpActionResult actionResult = _skillController.Get();
             var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<SkillDTO>>;
@@ -51,7 +51,7 @@ namespace SkillsTracker.Tests
         }
 
         [TestMethod]
-        public void GetSkill_PassCategoryId_ReturnsValidCategory()
+        public void GetSkill_PassSkillId_ReturnsValidSkill()
         {
             IHttpActionResult actionResult = _skillController.Get();
             var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<SkillDTO>>;
@@ -70,7 +70,7 @@ namespace SkillsTracker.Tests
         }
 
         [TestMethod]
-        public void ValidateSkillModel_ValidCategory_ReturnsTrue()
+        public void ValidateSkillModel_ValidSkill_ReturnsTrue()
         {
             var skillDTO = new SkillDTO()
             {

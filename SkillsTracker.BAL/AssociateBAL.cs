@@ -10,9 +10,9 @@ namespace AssociatesTracker.BAL
 {
     public class AssociateBAL
     {
-        public bool AddSkill(AssociateDTO AssociateDTO)
+        public bool AddSkill(AssociateDTO associateDTO)
         {
-            var associate = Mapper.Map<Associate>(AssociateDTO);
+            var associate = Mapper.Map<Associate>(associateDTO);
 
             using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
             {
