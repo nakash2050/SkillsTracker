@@ -8,16 +8,21 @@ import { AppComponent } from './app.component';
 import { AddSkillComponent } from './_components/add-skill/add-skill.component';
 
 import { SkillService } from './_services/skill.service';
+import { ContentEditableModelDirective } from './_directives/content-editable-model.directive';
+import { HomeComponent } from './_components/home/home.component';
 
 const routes: Routes = [
   { path: "addskill", component: AddSkillComponent },
+  { path: "home", component: HomeComponent },
   { path: "**", redirectTo: "addskill", pathMatch: "full" }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddSkillComponent
+    AddSkillComponent,
+    ContentEditableModelDirective,
+    HomeComponent
   ],
   imports: [  
     BrowserModule,

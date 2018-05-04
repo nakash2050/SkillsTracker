@@ -1,13 +1,14 @@
 <div>
   <div class="category-title">Add Skill</div>
   <br>
-  <form class="form-horizontal">
+  <form class="form-horizontal" #form="ngForm" (ngSubmit)="form">
       <label for="inputEmail" class="col-md-2 control-label">Skill Name</label>
       <div class="form-inline">
         <div class="col-md-8">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Enter skill name" style="width:80%">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-default">Clear</button>
+          <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="skillName" placeholder="Enter skill name" style="width:80%" required>
+            <button type="submit" class="btn btn-primary" (click)="submit(form)"  [disabled]="skill.invalid">Submit</button>
+            <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+            <span class="help-block" *ngIf="skill.touched && skill.errors?.required">Please enter a Category</span>
         </div>
       </div>
    </form>
@@ -16,10 +17,10 @@
       <div class="form-inline" *ngFor="let skill of skills">
           <div>
               <div class="alert alert-success">
-                  <span class="category">{{ skill.skillName }}</span>          
+                  <span class="category" [class.category-focus]="skill.isEdit" [id]="'spn' + skill.skillId" [attr.contenteditable]="skill.isEdit" [(contentEditableModel)]="skill.skillName">{{ skill.skillName }}</span>          
                   <div class="pull-right category-btns">
-                    <button class="btn btn-sm btn-warning">Edit</button>
-                    <button class="btn btn-sm btn-danger">Delete</button>
+                    <button class="btn btn-sm btn-warning" [ngClass]="{'btn-warning': !skill.isEdit, 'btn-success': skill.isEdit}" (click)="isEditOrSave(skill)">{{ skill.isEdit ? 'Update' : 'Edit' }}</button>
+                    <button class="btn btn-sm btn-danger" (click)="deleteSkill(skill)">Delete</button>
                   </div>
                 </div>
           </div>
