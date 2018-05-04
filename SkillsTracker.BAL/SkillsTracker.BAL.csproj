@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociateBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkillsBAL.cs" />
   </ItemGroup>

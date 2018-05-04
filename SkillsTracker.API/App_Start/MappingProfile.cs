@@ -10,6 +10,8 @@ namespace SkillsTracker.API.App_Start
         {
             CreateMap<SkillDTO, Skills>();
             CreateMap<Skills, SkillDTO>();
+            CreateMap<AssociateDTO, Associate>();
+            CreateMap<Associate, AssociateDTO>();
         }
     }
 }
