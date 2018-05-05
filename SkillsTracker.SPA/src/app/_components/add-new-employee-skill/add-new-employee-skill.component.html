@@ -1,0 +1,124 @@
+<div>
+  <div class="category-title">Add New Employee Skill</div>
+  <br>
+  <form>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Name</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter full Name">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Associate ID</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter Associate ID">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Email</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter email">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Mobile</label>
+        <div class="col-md-8">
+          <input type="phone" class="form-control input-sm" id="txtPhone" placeholder="Enter mobile number">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Gender</label>
+        <div class="btn-group col-md-8">
+          <label class="btn btn-default" [(ngModel)]="genderModel" btnRadio="male" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+            <span>Male</span>
+          </label>
+          <label class="btn btn-default" [(ngModel)]="genderModel" btnRadio="female" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+            <span>Female</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div>
+        <div class="box1">
+          <img src="http://www.placekitten.com/120/120">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="btn-group-vertical" style="margin-top: 10px">
+        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="green" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span> Status Green</span>
+        </label>
+        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="blue" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span> Status Blue</span>
+        </label>
+        <label class="btn btn-danger" [(ngModel)]="radioModel" btnRadio="red" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span> Status Red</span>
+        </label>
+      </div>
+      <div class="btn-group-vertical" style="margin-top: 10px">
+        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="green" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span>L1</span>
+        </label>
+        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="blue" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span>L2</span>
+        </label>
+        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="red" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
+          <span>L3</span>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtRemarks" class="control-label">Remarks</label>
+        <div class="">
+          <textarea type="text" class="form-control input-sm" id="txtRemarks" placeholder="Enter Remarks" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <b>Skills</b>
+    </div>
+    <div class="panel-body">
+      <div>
+        <div class="form-group">
+          <label for="txtName" class="col-md-1 control-label">Name</label>
+          <div class="col-md-3">
+            0<input type="range" min="1" max="20" value="10" class="slider" id="myRange">20
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="txtName" class="col-md-1 control-label">Name</label>
+          <div class="col-md-3">
+            <input type="range" min="1" max="20" value="10" class="slider" id="myRange">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="txtName" class="col-md-1 control-label">Name</label>
+          <div class="col-md-3">
+            <input type="range" min="1" max="20" value="10" class="slider" id="myRange">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer"></div>
+  </div>
+</div>

@@ -6,7 +6,7 @@
       <div class="form-inline">
         <div class="col-md-8">
           <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="skillName" placeholder="Enter skill name" style="width:80%" required>
-            <button type="submit" class="btn btn-primary" (click)="submit(form)"  [disabled]="skill.invalid">Submit</button>
+            <button type="submit" class="btn btn-success" (click)="submit(form)"  [disabled]="skill.invalid">Submit</button>
             <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
             <span class="help-block" *ngIf="skill.touched && skill.errors?.required">Please enter a Category</span>
         </div>
@@ -16,7 +16,7 @@
    <div class="col-md-7 col-md-offset-2">
       <div class="form-inline" *ngFor="let skill of skills">
           <div>
-              <div class="alert alert-success">
+              <div class="alert alert-info">
                   <span class="category" [class.category-focus]="skill.isEdit" [id]="'spn' + skill.skillId" [attr.contenteditable]="skill.isEdit" [(contentEditableModel)]="skill.skillName">{{ skill.skillName }}</span>          
                   <div class="pull-right category-btns">
                     <button class="btn btn-sm btn-warning" [ngClass]="{'btn-warning': !skill.isEdit, 'btn-success': skill.isEdit}" (click)="isEditOrSave(skill)">{{ skill.isEdit ? 'Update' : 'Edit' }}</button>
