@@ -49,16 +49,6 @@ body {
   width: 100px;
 }
 
-.scrollable-panel {
-  max-height: 300px;
-  overflow: auto;
-}
-
-.scrollable-panel-main {
-  max-height: 800px;
-  overflow: auto;
-}
-
 .workout-success {
   font-family: "Oswald", sans-serif;
   color: gold;
@@ -104,6 +94,17 @@ body {
 
 .btn-workout-md {
   width: 100px;
+}
+
+.scrollable-panel {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.scrollable-panel-main {
+  max-height: 800px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .scrollable-panel-main::-webkit-scrollbar-track {

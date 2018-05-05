@@ -2,103 +2,108 @@
   <div class="category-title">Add New Employee Skill</div>
   <br>
   <form #form="ngForm" (ngSubmit)="submit(form)">
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="txtName" class="col-md-4 control-label">Name</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter full Name">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="txtName" class="col-md-4 control-label">Name</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control input-sm" id="name" name="name" [(ngModel)]="name" #mName="ngModel" placeholder="Enter Full Name"
+              required>
+            <span class="help-block" *ngIf="mName.touched && mName.errors?.required">Please enter Candidate's full name</span>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="associateId" class="col-md-4 control-label">Associate ID</label>
+          <div class="col-md-8">
+            <input type="text" pattern="\d*" maxlength="6" class="form-control input-sm" id="associateId" name="associateId" [(ngModel)]="associateId" #mAssociateId="ngModel"
+              placeholder="Enter Associate ID" required>
+            <span class="help-block" *ngIf="mAssociateId.touched && mAssociateId.errors?.required">Please enter Candidate's Employee ID</span>
+            <span class="help-block" *ngIf="mAssociateId.touched && mAssociateId.errors?.pattern">Please enter a valid Employee ID</span>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="txtName" class="col-md-4 control-label">Email</label>
+          <div class="col-md-8">
+            <input type="email" class="form-control input-sm" id="email" name="email" [(ngModel)]="email" #mEmail="ngModel" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required>
+            <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.required">Please enter Candidate's Email ID</span>
+            <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.pattern">Please enter a valid Email ID</span>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="txtName" class="col-md-4 control-label">Mobile</label>
+          <div class="col-md-8">
+            <input type="phone" class="form-control input-sm" id="mobile" name="mobile" [(ngModel)]="mobile" #mMobile="ngModel" placeholder="Enter mobile number"
+              required>
+            <span class="help-block" *ngIf="mMobile.touched && mMobile.errors?.required">Please enter Candidate's Mobile number</span>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Gender</label>
+          <div class="btn-group col-md-8">
+            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="male" tabindex="0" role="button">
+              <span>Male</span>
+            </label>
+            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="female" tabindex="0" role="button">
+              <span>Female</span>
+            </label>
+          </div>
         </div>
       </div>
-      <br>
-      <div class="form-group">
-        <label for="txtName" class="col-md-4 control-label">Associate ID</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter Associate ID">
+      <div class="col-md-2">
+        <div>
+          <div class="box1">
+            <img src="http://www.placekitten.com/120/120">
+          </div>
         </div>
       </div>
-      <br>
-      <div class="form-group">
-        <label for="txtName" class="col-md-4 control-label">Email</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control input-sm" id="txtName" placeholder="Enter email">
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="txtName" class="col-md-4 control-label">Mobile</label>
-        <div class="col-md-8">
-          <input type="phone" class="form-control input-sm" id="txtPhone" placeholder="Enter mobile number">
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <label for="txtName" class="col-md-4 control-label">Gender</label>
-        <div class="btn-group col-md-8">
-          <label class="btn btn-default" [(ngModel)]="genderModel" btnRadio="male" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-            <span>Male</span>
+      <div class="col-md-2">
+        <div class="btn-group-vertical" style="margin-top: 10px">
+          <label class="btn btn-success" [(ngModel)]="status" name="status" btnRadio="green" tabindex="0" role="button">
+            <span> Status Green</span>
           </label>
-          <label class="btn btn-default" [(ngModel)]="genderModel" btnRadio="female" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-            <span>Female</span>
+          <label class="btn btn-primary" [(ngModel)]="status" name="status" btnRadio="blue" tabindex="0" role="button">
+            <span> Status Blue</span>
+          </label>
+          <label class="btn btn-danger" [(ngModel)]="status" name="status" btnRadio="red" tabindex="0" role="button">
+            <span> Status Red</span>
+          </label>
+        </div>
+        <div class="btn-group-vertical" style="margin-top: 10px">
+          <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L1" tabindex="0" role="button">
+            <span>L1</span>
+          </label>
+          <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L2" tabindex="0" role="button">
+            <span>L2</span>
+          </label>
+          <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L3" tabindex="0" role="button">
+            <span>L3</span>
           </label>
         </div>
       </div>
-    </div>
-    <div class="col-md-2">
-      <div>
-        <div class="box1">
-          <img src="http://www.placekitten.com/120/120">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="txtRemarks" class="control-label">Remarks</label>
+          <div class="">
+            <textarea type="text" class="form-control input-sm" id="txtRemarks" placeholder="Enter Remarks" rows="5"></textarea>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-2">
-      <div class="btn-group-vertical" style="margin-top: 10px">
-        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="green" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span> Status Green</span>
-        </label>
-        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="blue" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span> Status Blue</span>
-        </label>
-        <label class="btn btn-danger" [(ngModel)]="radioModel" btnRadio="red" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span> Status Red</span>
-        </label>
-      </div>
-      <div class="btn-group-vertical" style="margin-top: 10px">
-        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="green" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span>L1</span>
-        </label>
-        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="blue" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span>L2</span>
-        </label>
-        <label class="btn btn-default" [(ngModel)]="radioModel" btnRadio="red" tabindex="0" role="button" [ngModelOptions]="{standalone: true}">
-          <span>L3</span>
-        </label>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="txtRemarks" class="control-label">Remarks</label>
-        <div class="">
-          <textarea type="text" class="form-control input-sm" id="txtRemarks" placeholder="Enter Remarks" rows="5"></textarea>
-        </div>
-      </div>
-    </div>
+
     <hr>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <div>
       <div class="panel panel-default">
         <div class="panel-heading">
           <b>Skills (Rating 0 - 20)</b>
         </div>
         <div class="panel-body">
-          <div class="wrapper">
+          <div class="wrapper" ngModelGroup="skills" #skillsCtrl="ngModelGroup">
             <div class="scrollable-panel">
               <div class="force-overflow">
                 <div *ngFor="let skill of skills">
@@ -114,19 +119,19 @@
               <div class="form-group">
                 <label for="txtName" class="col-md-3 control-label">Strength</label>
                 <div class="col-md-9">
-                  <input type="text" class="form-control input-md" id="txtName" placeholder="Enter Candidate Strength">
+                  <input type="text" id="strength" name="strength" [(ngModel)]="strength" #mStrength="ngModel" class="form-control input-sm" placeholder="Enter Candidate Strength">
                 </div>
               </div>
               <div class="form-group">
                 <label for="txtName" class="col-md-3 control-label">Weakness</label>
                 <div class="col-md-9">
-                  <input type="text" class="form-control input-md" id="txtName" placeholder="Enter Candiate Weakness">
+                  <input type="text" id="weakness" name="weakness" [(ngModel)]="weakness" #mWeakness="ngModel" class="form-control input-sm" placeholder="Enter Candiate Weakness">
                 </div>
               </div>
             </div>
           </div>
           <div class="pull-right">
-            <input type="button" class="btn btn-default btn-lg" value="Reset" (click)="reset()">
+            <input type="button" class="btn btn-default btn-lg" value="Reset" (click)="reset(form)">
             <input type="button" class="btn btn-danger btn-lg" value="Cancel" (click)="cancel()">
             <input type="submit" class="btn btn-success btn-lg" value="Save">
           </div>

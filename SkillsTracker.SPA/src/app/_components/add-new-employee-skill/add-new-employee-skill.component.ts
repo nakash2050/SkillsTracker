@@ -13,8 +13,9 @@ export class AddNewEmployeeSkillComponent implements OnInit {
 
   constructor(private skillService: SkillService, private router: Router) {}
 
-  radioModel = "green";
-  genderModel = "male";
+  status = "green";
+  gender = "male";
+  level = "L1";
 
   ngOnInit() {
     this.skillService.getSkills().subscribe(response => {
@@ -26,7 +27,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     console.log(form.value);
   }
 
-  reset() {
+  reset(form) {
     for (let i = 0; i < this.skills.length; i++) {
       this.skills[i].skillRating = 0;
     }
