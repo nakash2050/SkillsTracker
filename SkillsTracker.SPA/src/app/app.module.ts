@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { Http, HttpModule } from "@angular/http";
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { IonRangeSliderModule } from "ng2-ion-range-slider";
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { ContentEditableModelDirective } from './_directives/content-editable-mo
 import { HomeComponent } from './_components/home/home.component';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { AddNewEmployeeSkillComponent } from './_components/add-new-employee-skill/add-new-employee-skill.component';
+import { SliderComponent } from './_components/slider/slider.component';
 
 const routes: Routes = [
   { path: "addskill", component: AddSkillComponent },
@@ -29,14 +31,16 @@ const routes: Routes = [
     ContentEditableModelDirective,
     HomeComponent,
     DashboardComponent,
-    AddNewEmployeeSkillComponent
+    AddNewEmployeeSkillComponent,
+    SliderComponent
   ],
   imports: [  
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    IonRangeSliderModule
   ],
   providers: [
     SkillService

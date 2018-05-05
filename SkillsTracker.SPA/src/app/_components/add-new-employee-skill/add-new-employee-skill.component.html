@@ -1,7 +1,7 @@
 <div>
   <div class="category-title">Add New Employee Skill</div>
   <br>
-  <form>
+  <form #form="ngForm" (ngSubmit)="submit(form)">
     <div class="col-md-4">
       <div class="form-group">
         <label for="txtName" class="col-md-4 control-label">Name</label>
@@ -82,43 +82,57 @@
         </div>
       </div>
     </div>
-  </form>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <hr>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <b>Skills</b>
-    </div>
-    <div class="panel-body">
-      <div>
-        <div class="form-group">
-          <label for="txtName" class="col-md-1 control-label">Name</label>
-          <div class="col-md-3">
-            0<input type="range" min="1" max="20" value="10" class="slider" id="myRange">20
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <b>Skills (Rating 0 - 20)</b>
+        </div>
+        <div class="panel-body">
+          <div class="wrapper">
+            <div class="scrollable-panel">
+              <div class="force-overflow">
+                <div *ngFor="let skill of skills">
+                  <app-slider [name]="skill.skillId" [(ngModel)]="skill.skillRating">{{skill.skillName}}</app-slider>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="txtName" class="col-md-1 control-label">Name</label>
-          <div class="col-md-3">
-            <input type="range" min="1" max="20" value="10" class="slider" id="myRange">
+        <div class="panel-footer">
+          <div class="pull-left">
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="txtName" class="col-md-3 control-label">Strength</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control input-md" id="txtName" placeholder="Enter Candidate Strength">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="txtName" class="col-md-3 control-label">Weakness</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control input-md" id="txtName" placeholder="Enter Candiate Weakness">
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="txtName" class="col-md-1 control-label">Name</label>
-          <div class="col-md-3">
-            <input type="range" min="1" max="20" value="10" class="slider" id="myRange">
+          <div class="pull-right">
+            <input type="button" class="btn btn-default btn-lg" value="Reset" (click)="reset()">
+            <input type="button" class="btn btn-danger btn-lg" value="Cancel" (click)="cancel()">
+            <input type="submit" class="btn btn-success btn-lg" value="Save">
           </div>
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>
-    <div class="panel-footer"></div>
-  </div>
+  </form>
 </div>

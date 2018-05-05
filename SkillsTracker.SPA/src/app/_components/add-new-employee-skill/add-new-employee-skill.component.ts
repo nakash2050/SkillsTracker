@@ -1,18 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { SkillService } from "../../_services/skill.service";
+import { SkillModel } from "../../_models/skill.model";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-add-new-employee-skill',
-  templateUrl: './add-new-employee-skill.component.html',
-  styleUrls: ['./add-new-employee-skill.component.css']
+  selector: "app-add-new-employee-skill",
+  templateUrl: "./add-new-employee-skill.component.html",
+  styleUrls: ["./add-new-employee-skill.component.css"]
 })
 export class AddNewEmployeeSkillComponent implements OnInit {
+  skills: Array<SkillModel>;
 
-  constructor() { }
+  constructor(private skillService: SkillService, private router: Router) {}
 
-  radioModel = 'green';
-  genderModel = 'male';
+  radioModel = "green";
+  genderModel = "male";
 
   ngOnInit() {
+    this.skillService.getSkills().subscribe(response => {
+      this.skills = <Array<SkillModel>>response;
+    });
   }
 
+  submit(form) {
+    console.log(form.value);
+  }
+
+  reset() {
+    for (let i = 0; i < this.skills.length; i++) {
+      this.skills[i].skillRating = 0;
+    }
+  }
+
+  cancel() {
+    this.router.navigate(["/home"]);
+  }
 }

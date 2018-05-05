@@ -1,0 +1,9 @@
+<div class="col-md-3 ">
+  <span>
+    <ng-content></ng-content>:&nbsp;&nbsp;
+    <span class="badge">{{ innerValue }}</span>
+    <br><br>
+    <input type="range" min="0" max="20" step="1" [(ngModel)]="value" class="form-control" (blur)="onBlur()" class="slider">
+  </span>
+  <br>
+</div>
