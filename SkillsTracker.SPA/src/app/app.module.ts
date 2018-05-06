@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { Http, HttpModule } from "@angular/http";
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { IonRangeSliderModule } from "ng2-ion-range-slider";
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
 import { AddNewEmployeeSkillComponent } from './_components/add-new-employee-skill/add-new-employee-skill.component';
 import { SliderComponent } from './_components/slider/slider.component';
 import { AssociateService } from './_services/associate.service';
+import { NumberOnlyDirective } from './_directives/number-only.directive';
 
 
 const routes: Routes = [
@@ -29,11 +31,12 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AddSkillComponent,
-    ContentEditableModelDirective,
     HomeComponent,
     DashboardComponent,
     AddNewEmployeeSkillComponent,
-    SliderComponent
+    SliderComponent,
+    ContentEditableModelDirective,
+    NumberOnlyDirective,
   ],
   imports: [  
     BrowserModule,
@@ -41,6 +44,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpModule,
     ButtonsModule.forRoot(),
+    ModalModule.forRoot(),
     IonRangeSliderModule
   ],
   providers: [

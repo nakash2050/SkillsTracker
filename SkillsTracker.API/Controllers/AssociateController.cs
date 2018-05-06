@@ -55,9 +55,18 @@ namespace SkillsTracker.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var result = _associateBAL.AddAssociateWithSkills(associateDTO);
+            var associateInDb = _associateBAL.GetAssociate(associateDTO.Associate.AssociateId);
 
-            return Ok(result);
+            if (associateInDb == null)
+            { 
+                var response = _associateBAL.AddAssociateWithSkills(associateDTO);
+                return Ok(response);
+            }
+            else
+            {
+                var response = string.Format("Employee with ID: \"{0}\" already exists. Employee Name as per records is : \"{1}\"", associateInDb.AssociateId, associateInDb.Name);
+                return BadRequest(response);
+            }
         }
 
         public IHttpActionResult Put(int id, AssociateDTO associateDTO)

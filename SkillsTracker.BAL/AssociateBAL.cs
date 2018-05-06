@@ -25,6 +25,7 @@ namespace AssociatesTracker.BAL
         public bool AddAssociateWithSkills(AssociateWithSkillsDTO associateDTO)
         {
             bool saved = false;
+
             var associate = Mapper.Map<Associate>(associateDTO.Associate);
             var skills = associateDTO.Skills.Select(Mapper.Map<AssociateSkillsDTO, AssociateSkills>);
 
@@ -33,7 +34,7 @@ namespace AssociatesTracker.BAL
                 unitOfWork.Associates.Add(associate);
                 saved = unitOfWork.Complete() == 1;
 
-                if(skills != null && skills.Count() > 0)
+                if (skills != null && skills.Count() > 0)
                 {
                     unitOfWork.AssociateSkills.AddRange(skills);
                     var result = unitOfWork.Complete();

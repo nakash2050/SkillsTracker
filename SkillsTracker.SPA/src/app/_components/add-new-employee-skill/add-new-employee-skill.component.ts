@@ -1,8 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { SkillService } from "../../_services/skill.service";
 import { SkillModel } from "../../_models/skill.model";
 import { Router } from "@angular/router";
 import { AssociateService } from "./../../_services/associate.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { Form, FormControl, FormGroup, AbstractControl } from "@angular/forms";
+import { BadRequestError } from './../../_shared/bad-request-error';
 
 @Component({
   selector: "app-add-new-employee-skill",
@@ -14,11 +23,25 @@ export class AddNewEmployeeSkillComponent implements OnInit {
   status = "green";
   gender = "M";
   level = "L1";
+  dataSaved: boolean = false;
+  modalRef: BsModalRef;
+  @ViewChild("template") modalTemplate: ElementRef;
+  @ViewChild("mName") mName: ElementRef;
+  name = "";
+  associateId: any;
+  email = "";
+  mobile = "";
+  remark = "";
+  strength = "";
+  weakness = "";
+  form: FormGroup;
+  associateExistsError: string;
 
   constructor(
     private skillService: SkillService,
     private router: Router,
-    private associateService: AssociateService
+    private associateService: AssociateService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit() {
@@ -27,9 +50,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     });
   }
 
-  submit(form) {
-    console.log(form.value);
-
+  submit(form) {    
     const associateData: any = {
       associate: {
         associateId: form.value.associateId,
@@ -71,20 +92,47 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     let skills = form.value.skills;
     Object.keys(skills).forEach(key => {
       if (skills[key] != 0) {
-        associateData.skills.push({ associateId: form.value.associateId, skillId: key, skillRating: skills[key] });
+        associateData.skills.push({
+          associateId: form.value.associateId,
+          skillId: key,
+          skillRating: skills[key]
+        });
       }
     });
 
-    console.log(associateData);
-
-    this.associateService
-      .addAssociateWithSkills(associateData)
-      .subscribe(response => {
-        console.log(response);
-      });
+    this.associateService.addAssociateWithSkills(associateData).subscribe(
+      response => {
+        this.dataSaved = response;
+        this.modalRef = this.modalService.show(this.modalTemplate);
+        this.reset(form);
+      },
+      error => {
+        if(error instanceof BadRequestError){
+          let err = <BadRequestError>error;
+          this.associateExistsError = JSON.parse(err.originalError._body).message;
+          this.modalRef = this.modalService.show(this.modalTemplate);
+        }
+      }
+    );
   }
 
-  reset(form) {
+  reset(form: FormGroup) {
+    this.name = "";
+    this.associateId = "";
+    this.email = "";
+    this.mobile = "";
+    this.remark = "";
+    this.strength = "";
+    this.weakness = "";
+    this.status = "green";
+    this.gender = "M";
+    this.level = "L1";
+
+    Object.keys(form.controls).forEach(main => {
+      let control = form.controls[main];
+      control.markAsUntouched();
+    });
+
     for (let i = 0; i < this.skills.length; i++) {
       this.skills[i].skillRating = 0;
     }
