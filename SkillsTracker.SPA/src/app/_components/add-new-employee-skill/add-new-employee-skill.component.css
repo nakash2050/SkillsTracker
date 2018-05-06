@@ -1,14 +1,18 @@
-.box1 {
-  width: auto;
-  height: auto;
- 
-  background-color: chocolate;
-  padding: 5px;
-  display: inline-block;
+.box1 {  
+  max-width: 160px;
+  max-height: 160px;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;  
+  border: 1px black solid;
+  padding: 3px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .box1 img {
   vertical-align: top;
-  max-width: inherit;
-  max-height: inherit;
+  max-width: 150px;
+  max-height: 150px;
 }
-

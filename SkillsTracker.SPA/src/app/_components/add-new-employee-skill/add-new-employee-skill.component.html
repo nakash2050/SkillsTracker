@@ -57,9 +57,11 @@
       </div>
       <div class="col-md-2">
         <div>
-          <div class="box1">
-            <img src="http://www.placekitten.com/120/120">
+          <div class="box1" (click)="upload.click()">
+            <img [src]="imageUrl" *ngIf="imageUrl != null">
+            <span *ngIf="imageUrl == null">Click to upload Image</span>
           </div>
+          <input type="file" id="btnUpload" value="Upload" #upload (change)="fileChange($event)" class="upload" style="display: none" accept=".jpg, .png, .jpeg, .gif, .bmp|images/*"/>
         </div>
       </div>
       <div class="col-md-2">
@@ -154,7 +156,7 @@
     <span>Employee data save: {{ dataSaved ? 'Successful' : 'Failed' }}</span>
     <br>
     <br>
-    <span *ngIf="associateExistsError != ''">{{ associateExistsError }}</span>
+    <span *ngIf="associateExistsError != null">{{ associateExistsError }}</span>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Close</button>

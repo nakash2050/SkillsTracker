@@ -16,8 +16,8 @@ export class AssociateService extends DataService {
     return this.get(this.controllerName);
   }
 
-  addAssociateWithSkills(associate: AssociateWithSkillsModel) {
-    return this.post(this.controllerName + '/withskills', associate);
+  addAssociateWithSkillsAndImage(formData: FormData) {
+    return this.post(this.controllerName + '/withSkillsAndImage', formData);
   }
 
   updateAssociateWithSkills(associate: AssociateWithSkillsModel) {

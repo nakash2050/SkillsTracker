@@ -11,7 +11,9 @@ import { Router } from "@angular/router";
 import { AssociateService } from "./../../_services/associate.service";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { Form, FormControl, FormGroup, AbstractControl } from "@angular/forms";
-import { BadRequestError } from './../../_shared/bad-request-error';
+import { BadRequestError } from "./../../_shared/bad-request-error";
+import { Observable } from "rxjs/Observable";
+import { Http, RequestOptions } from "@angular/http";
 
 @Component({
   selector: "app-add-new-employee-skill",
@@ -35,13 +37,15 @@ export class AddNewEmployeeSkillComponent implements OnInit {
   strength = "";
   weakness = "";
   form: FormGroup;
-  associateExistsError: string;
+  associateExistsError: string = null;
+  imageUrl;
 
   constructor(
     private skillService: SkillService,
     private router: Router,
     private associateService: AssociateService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private http: Http
   ) {}
 
   ngOnInit() {
@@ -50,7 +54,9 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     });
   }
 
-  submit(form) {    
+  selectedFile: File;
+
+  submit(form) {
     const associateData: any = {
       associate: {
         associateId: form.value.associateId,
@@ -100,16 +106,26 @@ export class AddNewEmployeeSkillComponent implements OnInit {
       }
     });
 
-    this.associateService.addAssociateWithSkills(associateData).subscribe(
-      response => {
-        this.dataSaved = response;
+    let formData: FormData = new FormData();
+
+    if (this.selectedFile != null) {
+      formData.append("uploadFile", this.selectedFile, this.selectedFile.name);
+    }
+    formData.append("formValue", JSON.stringify(associateData));
+
+    this.associateService.addAssociateWithSkillsAndImage(formData).subscribe(
+      response => {        
+        this.dataSaved = response.status;
+        this.associateExistsError = null;
         this.modalRef = this.modalService.show(this.modalTemplate);
         this.reset(form);
       },
       error => {
-        if(error instanceof BadRequestError){
+        if (error instanceof BadRequestError) {
           let err = <BadRequestError>error;
-          this.associateExistsError = JSON.parse(err.originalError._body).message;
+          this.associateExistsError = JSON.parse(
+            err.originalError._body
+          ).message;
           this.modalRef = this.modalService.show(this.modalTemplate);
         }
       }
@@ -127,6 +143,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     this.status = "green";
     this.gender = "M";
     this.level = "L1";
+    this.imageUrl = null;
 
     Object.keys(form.controls).forEach(main => {
       let control = form.controls[main];
@@ -140,5 +157,19 @@ export class AddNewEmployeeSkillComponent implements OnInit {
 
   cancel() {
     this.router.navigate(["/home"]);
+  }
+
+  fileName: string;
+
+  fileChange(event) {    
+    this.selectedFile = <File>event.target.files[0];
+    this.fileName = this.selectedFile.name;
+    var reader = new FileReader();
+
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+
+    reader.readAsDataURL(this.selectedFile);
   }
 }
