@@ -37,7 +37,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
   weakness = "";
   form: FormGroup;
   associateExistsError: string = null;
-  imageUrl;
+  imageUrl;  
 
   constructor(
     private skillService: SkillService,
@@ -113,7 +113,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     formData.append("formValue", JSON.stringify(associateData));
 
     this.associateService.addAssociateWithSkillsAndImage(formData).subscribe(
-      response => {        
+      response => {
         this.dataSaved = response.status;
         this.associateExistsError = null;
         this.modalRef = this.modalService.show(this.modalTemplate);
@@ -142,7 +142,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     this.status = "green";
     this.gender = "M";
     this.level = "L1";
-    this.imageUrl = null;
+    this.imageUrl = null;    
 
     Object.keys(form.controls).forEach(main => {
       let control = form.controls[main];
@@ -160,14 +160,14 @@ export class AddNewEmployeeSkillComponent implements OnInit {
 
   fileName: string;
 
-  fileChange(event) {    
+  fileChange(event) {
     this.selectedFile = <File>event.target.files[0];
     this.fileName = this.selectedFile.name;
     var reader = new FileReader();
 
-    reader.onload = (event:any) => {
+    reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
-    }
+    };
 
     reader.readAsDataURL(this.selectedFile);
   }

@@ -61,7 +61,8 @@
             <img [src]="imageUrl" *ngIf="imageUrl != null">
             <span *ngIf="imageUrl == null">Click to upload Image</span>
           </div>
-          <input type="file" id="btnUpload" value="Upload" #upload (change)="fileChange($event)" class="upload" style="display: none" accept=".jpg, .png, .jpeg, .gif, .bmp|images/*"/>
+          <input type="file" id="btnUpload" value="Upload" #upload (change)="fileChange($event)" class="upload" style="display: none"
+            accept=".jpg, .png, .jpeg, .gif, .bmp|images/*" />
         </div>
       </div>
       <div class="col-md-2">

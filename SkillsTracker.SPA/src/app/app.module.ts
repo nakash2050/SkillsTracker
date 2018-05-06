@@ -18,6 +18,7 @@ import { AddNewEmployeeSkillComponent } from './_components/add-new-employee-ski
 import { SliderComponent } from './_components/slider/slider.component';
 import { AssociateService } from './_services/associate.service';
 import { NumberOnlyDirective } from './_directives/number-only.directive';
+import { SkillFilterPipe } from './_pipes/skill-filter.pipe';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
     SliderComponent,
     ContentEditableModelDirective,
     NumberOnlyDirective,
+    SkillFilterPipe
   ],
   imports: [  
     BrowserModule,
