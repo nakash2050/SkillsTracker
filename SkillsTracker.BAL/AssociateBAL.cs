@@ -10,7 +10,7 @@ namespace AssociatesTracker.BAL
 {
     public class AssociateBAL
     {
-        public bool AddSkill(AssociateDTO associateDTO)
+        public bool AddAssociate(AssociateDTO associateDTO)
         {
             var associate = Mapper.Map<Associate>(associateDTO);
 
@@ -19,6 +19,28 @@ namespace AssociatesTracker.BAL
                 unitOfWork.Associates.Add(associate);
                 var result = unitOfWork.Complete();
                 return result == 1;
+            }
+        }
+
+        public bool AddAssociateWithSkills(AssociateWithSkillsDTO associateDTO)
+        {
+            bool saved = false;
+            var associate = Mapper.Map<Associate>(associateDTO.Associate);
+            var skills = associateDTO.Skills.Select(Mapper.Map<AssociateSkillsDTO, AssociateSkills>);
+
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                unitOfWork.Associates.Add(associate);
+                saved = unitOfWork.Complete() == 1;
+
+                if(skills != null && skills.Count() > 0)
+                {
+                    unitOfWork.AssociateSkills.AddRange(skills);
+                    var result = unitOfWork.Complete();
+                    saved = result > 0;
+                }
+
+                return saved;
             }
         }
 

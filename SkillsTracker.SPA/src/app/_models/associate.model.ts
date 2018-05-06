@@ -1,6 +1,6 @@
 import { SkillModel } from "./skill.model";
 
-export interface AssociateModel {
+export interface AssociateWithSkillsModel {
   associateId: any;
   name: string;
   email: boolean;
@@ -16,5 +16,5 @@ export interface AssociateModel {
   remark: string;
   strength: string;
   weakness: string;
-  skills: Array<SkillModel>;
+  skills: Array<AssociateWithSkillsModel>;
 }

@@ -45,10 +45,10 @@
         <div class="form-group">
           <label class="col-md-4 control-label">Gender</label>
           <div class="btn-group col-md-8">
-            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="male" tabindex="0" role="button">
+            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="M" tabindex="0" role="button">
               <span>Male</span>
             </label>
-            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="female" tabindex="0" role="button">
+            <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="F" tabindex="0" role="button">
               <span>Female</span>
             </label>
           </div>
@@ -87,9 +87,9 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label for="txtRemarks" class="control-label">Remarks</label>
+          <label for="remark" class="control-label">Remarks</label>
           <div class="">
-            <textarea type="text" class="form-control input-sm" id="txtRemarks" placeholder="Enter Remarks" rows="5"></textarea>
+            <textarea class="form-control input-sm" id="remark" name="remark" [(ngModel)]="remark" #mRemarks="ngModel"  placeholder="Enter Remarks" rows="5"></textarea>
           </div>
         </div>
       </div>
@@ -117,13 +117,13 @@
           <div class="pull-left">
             <div class="form-inline">
               <div class="form-group">
-                <label for="txtName" class="col-md-3 control-label">Strength</label>
+                <label for="strength" class="col-md-3 control-label">Strength</label>
                 <div class="col-md-9">
                   <input type="text" id="strength" name="strength" [(ngModel)]="strength" #mStrength="ngModel" class="form-control input-sm" placeholder="Enter Candidate Strength">
                 </div>
               </div>
               <div class="form-group">
-                <label for="txtName" class="col-md-3 control-label">Weakness</label>
+                <label for="weakness" class="col-md-3 control-label">Weakness</label>
                 <div class="col-md-9">
                   <input type="text" id="weakness" name="weakness" [(ngModel)]="weakness" #mWeakness="ngModel" class="form-control input-sm" placeholder="Enter Candiate Weakness">
                 </div>

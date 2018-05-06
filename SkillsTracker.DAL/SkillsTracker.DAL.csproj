@@ -65,6 +65,14 @@
     <Compile Include="Migrations\201805031514472_UpdatedAssociateSkillsIdColumnName.Designer.cs">
       <DependentUpon>201805031514472_UpdatedAssociateSkillsIdColumnName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805060518104_AddedGenderColumnToAssociateTable.cs" />
+    <Compile Include="Migrations\201805060518104_AddedGenderColumnToAssociateTable.Designer.cs">
+      <DependentUpon>201805060518104_AddedGenderColumnToAssociateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.cs" />
+    <Compile Include="Migrations\201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.Designer.cs">
+      <DependentUpon>201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssociateSkillsRepository.cs" />
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805031514472_UpdatedAssociateSkillsIdColumnName.resx">
       <DependentUpon>201805031514472_UpdatedAssociateSkillsIdColumnName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805060518104_AddedGenderColumnToAssociateTable.resx">
+      <DependentUpon>201805060518104_AddedGenderColumnToAssociateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.resx">
+      <DependentUpon>201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,7 +51,7 @@ namespace SkillsTracker.Tests
             {
                 AssociateId = associate.AssociateId,
                 SkillId = skill.SkillId,
-                Rating = new Random().Next(20)
+                SkillRating = new Random().Next(20)
             };
 
             IHttpActionResult aSkillsactionResult = _associateSkillController.Post(associateSkill);
@@ -100,7 +100,7 @@ namespace SkillsTracker.Tests
             if (contentResult != null)
             {
                 var skill = contentResult.Content.FirstOrDefault();
-                skill.Rating = new Random().Next(20);
+                skill.SkillRating = new Random().Next(20);
 
                 IHttpActionResult updateActionResult = _associateSkillController.Put(skill.AssociateSkillsId, skill);
                 var updateContentResult = updateActionResult as OkNegotiatedContentResult<bool>;
@@ -112,7 +112,7 @@ namespace SkillsTracker.Tests
                 var getContentResult = getActionResult as OkNegotiatedContentResult<AssociateSkillsDTO>;
 
                 Assert.IsNotNull(getContentResult);
-                Assert.AreEqual(skill.Rating, getContentResult.Content.Rating);
+                Assert.AreEqual(skill.SkillRating, getContentResult.Content.SkillRating);
             }
         }
 

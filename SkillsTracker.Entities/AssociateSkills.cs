@@ -17,7 +17,7 @@ namespace SkillsTracker.Entities
         [ForeignKey("Skills")]
         public int SkillId { get; set; }
 
-        public int Rating { get; set; }
+        public int SkillRating { get; set; }
 
         public Associate Associate { get; set; }
 

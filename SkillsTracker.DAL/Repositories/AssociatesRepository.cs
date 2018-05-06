@@ -1,4 +1,6 @@
-﻿using SkillsTracker.Entities;
+﻿using System;
+using SkillsTracker.Entities;
+using SkillsTracker.Entities.DTO;
 using SkillsTracker.IRepositories;
 
 namespace SkillsTracker.DAL.Repositories

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SkillsTracker.Entities.DTO
 {
@@ -18,6 +13,6 @@ namespace SkillsTracker.Entities.DTO
         public int SkillId { get; set; }
 
         [Required]
-        public int Rating { get; set; }
+        public int SkillRating { get; set; }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="AssociateSkills.cs" />
     <Compile Include="DTO\AssociateDTO.cs" />
     <Compile Include="DTO\AssociateSkillsDTO.cs" />
+    <Compile Include="DTO\AssociateWithSkillsDTO.cs" />
     <Compile Include="DTO\SkillDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skills.cs" />

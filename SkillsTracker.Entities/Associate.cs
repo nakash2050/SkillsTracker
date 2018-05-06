@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SkillsTracker.Entities
 {
     public class Associate
-    {        
+    {
         [Key]
         [Column("Associate_ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -45,5 +45,8 @@ namespace SkillsTracker.Entities
         public string Strength { get; set; }
 
         public string Weakness { get; set; }
+
+        [StringLength(1, MinimumLength = 1)]
+        public string Gender { get; set; }
     }
 }

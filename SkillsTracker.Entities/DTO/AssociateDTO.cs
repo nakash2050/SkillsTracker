@@ -36,5 +36,8 @@ namespace SkillsTracker.Entities.DTO
         public string Strength { get; set; }
 
         public string Weakness { get; set; }
+
+        [StringLength(1, MinimumLength = 1)]
+        public string Gender { get; set; }
     }
 }

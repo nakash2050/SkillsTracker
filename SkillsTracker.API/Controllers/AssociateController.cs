@@ -5,6 +5,7 @@ using System.Web.Http;
 
 namespace SkillsTracker.API.Controllers
 {
+    [RoutePrefix("api/associate")]
     public class AssociateController : ApiController
     {
         private readonly AssociateBAL _associateBAL;
@@ -38,7 +39,7 @@ namespace SkillsTracker.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var result = _associateBAL.AddSkill(associateDTO);
+            var result = _associateBAL.AddAssociate(associateDTO);
 
             if (result)
             {
@@ -46,6 +47,17 @@ namespace SkillsTracker.API.Controllers
             }
 
             return Ok(skills);
+        }
+
+        [Route("withskills")]
+        public IHttpActionResult Post(AssociateWithSkillsDTO associateDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var result = _associateBAL.AddAssociateWithSkills(associateDTO);
+
+            return Ok(result);
         }
 
         public IHttpActionResult Put(int id, AssociateDTO associateDTO)
