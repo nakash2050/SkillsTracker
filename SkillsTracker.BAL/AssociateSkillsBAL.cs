@@ -79,5 +79,16 @@ namespace SkillsTracker.BAL
                 return result == 1;
             }
         }
+
+        public IEnumerable<AssociateSkillsDTO> GetAssociateSkillsByAssociateId(int associateId)
+        {
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                var associateSkills = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateId)
+                    .Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>);
+
+                return associateSkills;
+            }
+        }
     }
 }

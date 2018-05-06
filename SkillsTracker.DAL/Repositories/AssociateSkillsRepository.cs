@@ -1,5 +1,7 @@
-﻿using SkillsTracker.Entities;
+﻿using System.Linq;
+using SkillsTracker.Entities;
 using SkillsTracker.IRepositories;
+using System.Collections.Generic;
 
 namespace SkillsTracker.DAL.Repositories
 {
@@ -11,6 +13,11 @@ namespace SkillsTracker.DAL.Repositories
             base(context)
         {
 
+        }
+
+        public IEnumerable<AssociateSkills> GetAssociateSkillByAssociateId(int associateId)
+        {
+            return SkillsTrackerContext.AssociateSkills.Where(associate => associate.AssociateId == associateId);
         }
     }
 }

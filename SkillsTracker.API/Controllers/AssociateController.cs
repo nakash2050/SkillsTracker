@@ -38,6 +38,17 @@ namespace SkillsTracker.API.Controllers
             return Ok(result);
         }
 
+        [Route("withSkills/{id}")]
+        public IHttpActionResult GetAssociateWithSkills(int id)
+        {
+            var result = _associateBAL.GetAssociateWithSkills(id);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
+
         public IHttpActionResult Post(AssociateDTO associateDTO)
         {
             IEnumerable<AssociateDTO> skills = null;
@@ -70,9 +81,6 @@ namespace SkillsTracker.API.Controllers
 
             if (associateDTO != null)
             {
-                if (!ModelState.IsValid)
-                    return BadRequest();
-
                 var associateInDb = _associateBAL.GetAssociate(associateDTO.Associate.AssociateId);
 
                 if (associateInDb == null)
@@ -122,39 +130,6 @@ namespace SkillsTracker.API.Controllers
         {
             var result = _associateBAL.DeleteAssociate(id);
             return Ok(result);
-        }
-
-        [HttpPost]
-        [Route("UploadFileApi")]
-        public IHttpActionResult UploadJsonFile()
-        {
-            string imageUrl = string.Empty;
-            var httpRequest = HttpContext.Current.Request;
-
-            foreach (var data in httpRequest.Form.AllKeys)
-            {
-                var dd = httpRequest.Form[data];
-                var data1 = JsonConvert.DeserializeObject<AssociateWithSkillsDTO>(dd);
-            }
-
-            if (httpRequest.Files.Count > 0)
-            {
-                foreach (string file in httpRequest.Files)
-                {
-                    var postedFile = httpRequest.Files[file];
-                    var imagePath = HttpContext.Current.Server.MapPath("~/Images/");
-                    if (!Directory.Exists(imagePath))
-                    {
-                        Directory.CreateDirectory(imagePath);
-                    }
-                    var filePath = Path.Combine(imagePath, postedFile.FileName);
-                    postedFile.SaveAs(filePath);
-                    imageUrl = Path.Combine(ConfigurationManager.AppSettings["ApiBaseURL"], "Images", postedFile.FileName);
-
-                }
-            }
-
-            return Ok(new { ImageUrl = imageUrl });
         }
     }
 }

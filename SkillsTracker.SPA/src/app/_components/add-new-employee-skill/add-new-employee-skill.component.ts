@@ -28,7 +28,6 @@ export class AddNewEmployeeSkillComponent implements OnInit {
   dataSaved: boolean = false;
   modalRef: BsModalRef;
   @ViewChild("template") modalTemplate: ElementRef;
-  @ViewChild("mName") mName: ElementRef;
   name = "";
   associateId: any;
   email = "";

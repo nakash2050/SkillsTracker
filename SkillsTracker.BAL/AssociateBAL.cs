@@ -102,5 +102,19 @@ namespace AssociatesTracker.BAL
                 return result == 1;
             }
         }
+
+        public AssociateWithSkillsDTO GetAssociateWithSkills(int associateId)
+        {
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                var associate = unitOfWork.Associates.Get(associateId);
+                var skills = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateId);
+
+                var associateDTO = Mapper.Map<AssociateDTO>(associate);
+                var skillsDTO = skills.Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>).ToArray();                    
+
+                return new AssociateWithSkillsDTO() { Associate = associateDTO, Skills = skillsDTO };
+            }
+        }
     }
 }
