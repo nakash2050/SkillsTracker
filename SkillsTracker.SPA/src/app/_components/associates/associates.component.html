@@ -29,7 +29,7 @@
         <td>
           <img [src]="associate.picture" style="width:30px;height:30px" *ngIf="associate.picture != ''">
         </td>
-        <td align="center"><div [ngClass]="{'green': associate.status == 'GREEN', 'blue': associate.status == 'BLUE', 'red': associate.status == 'RED'}"></div></td>
+        <td align="center"><div [ngClass]="{'green': associate.status == 'GREEN', 'blue': associate.status == 'BLUE', 'red': associate.status == 'RED'}" [tooltip]="associate.status == 'GREEN' ? 'Available for Allocation' : associate.status == 'BLUE' ? 'Allocation In-process' : 'Allotted and Tagged'"></div></td>
         <td>{{ associate.name }}</td>
         <td style="width:15%">{{ associate.associateID }}</td>
         <td>{{ associate.email }}</td>

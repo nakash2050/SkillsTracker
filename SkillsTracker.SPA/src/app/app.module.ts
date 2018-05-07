@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
-import { Http, HttpModule } from "@angular/http";
+import { Http, HttpModule, BrowserXhr } from "@angular/http";
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
 
 import { AppComponent } from './app.component';
 import { AddSkillComponent } from './_components/add-skill/add-skill.component';
@@ -22,6 +23,7 @@ import { SkillFilterPipe } from './_pipes/skill-filter.pipe';
 import { AssociatesComponent } from './_components/associates/associates.component';
 import { DashboardResolver } from './_resolvers/dashboard.resolver';
 import { AssociateFilterPipe } from './_pipes/associate-filter.pipe';
+import { AppErrorHandler } from './_shared/app-error-handler';
 
 
 const routes: Routes = [
@@ -52,12 +54,15 @@ const routes: Routes = [
     HttpModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    NgProgressModule
   ],
   providers: [
     SkillService,
     AssociateService,
-    DashboardResolver
+    DashboardResolver,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: BrowserXhr, useClass: NgProgressBrowserXhr }
   ],
   bootstrap: [AppComponent]
 })

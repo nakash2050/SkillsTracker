@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssociateDashboardModel } from './../../_models/associate.dashboard.model';
 import { CandidatedDashboardModel } from './../../_models/candidated.dashboard.model';
+import { TechnologyDashboardModel } from '../../_models/technology.dashboard.model';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   dashboardData: any;
   associatesDashboard: Array<AssociateDashboardModel>;
   candidatesDashboard: CandidatedDashboardModel;
+  technologyDashboard: TechnologyDashboardModel;
 
   constructor(
     private router: Router,
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
       if(this.dashboardData != null){
         this.associatesDashboard = <Array<AssociateDashboardModel>>(this.dashboardData.associates);
         this.candidatesDashboard = <CandidatedDashboardModel>(this.dashboardData.candidates);
+        this.technologyDashboard = <TechnologyDashboardModel>(this.dashboardData.technology);
       }
     });
   }
