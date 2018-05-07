@@ -1,8 +1,8 @@
 export interface AssociateDashboardModel {
     associateID: any;
     name: string;
-    email: boolean;
-    mobile: number;
+    email: string;
+    mobile: string;
     picture: string;
     skills: string;
     status: string;  

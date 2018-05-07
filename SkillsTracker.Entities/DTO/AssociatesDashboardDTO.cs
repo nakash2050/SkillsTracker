@@ -2,7 +2,7 @@
 {
     public class AssociatesDashboardDTO
     {
-        public int AssociateID { get; set; }
+        public string AssociateID { get; set; }
 
         public string Name { get; set; }
 

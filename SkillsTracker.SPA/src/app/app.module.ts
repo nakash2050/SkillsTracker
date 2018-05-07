@@ -5,7 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { Http, HttpModule } from "@angular/http";
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { IonRangeSliderModule } from "ng2-ion-range-slider";
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { AppComponent } from './app.component';
 import { AddSkillComponent } from './_components/add-skill/add-skill.component';
@@ -21,6 +21,7 @@ import { NumberOnlyDirective } from './_directives/number-only.directive';
 import { SkillFilterPipe } from './_pipes/skill-filter.pipe';
 import { AssociatesComponent } from './_components/associates/associates.component';
 import { DashboardResolver } from './_resolvers/dashboard.resolver';
+import { AssociateFilterPipe } from './_pipes/associate-filter.pipe';
 
 
 const routes: Routes = [
@@ -40,8 +41,9 @@ const routes: Routes = [
     SliderComponent,
     ContentEditableModelDirective,
     NumberOnlyDirective,
-    SkillFilterPipe,
-    AssociatesComponent
+    AssociatesComponent,
+    AssociateFilterPipe,
+    SkillFilterPipe
   ],
   imports: [  
     BrowserModule,
@@ -50,7 +52,7 @@ const routes: Routes = [
     HttpModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot(),
-    IonRangeSliderModule
+    TooltipModule.forRoot()
   ],
   providers: [
     SkillService,

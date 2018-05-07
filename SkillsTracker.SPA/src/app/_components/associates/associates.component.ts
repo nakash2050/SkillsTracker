@@ -9,6 +9,11 @@ import { AssociateDashboardModel } from '../../_models/associate.dashboard.model
 export class AssociatesComponent implements OnInit {
 
   @Input('associates') associates: Array<AssociateDashboardModel>;
+  nameSearch: any;
+  empIdSearch: any;
+  emailSearch: any;
+  mobNoSearch: any;
+  strongSkillsSearch: any;
 
   constructor() { }
 

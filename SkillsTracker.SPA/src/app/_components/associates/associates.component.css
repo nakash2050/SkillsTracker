@@ -1,0 +1,50 @@
+#associates {
+    font-family: "Oswald", sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: black;
+}
+
+#associates td, #associates th {
+    border: 1px solid #ddd;
+    padding: 8px;    
+}
+
+#associates tr:nth-child(even){background-color: #f2f2f2;}
+
+#associates tr:hover {background-color: #ddd;}
+
+#associates th {   
+    text-align: center;
+    background-color: #e7e7e7;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: small;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.green {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.blue {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.red {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
