@@ -66,7 +66,7 @@ namespace SkillsTracker.API.Controllers
             return Ok(skills);
         }
 
-        [Route("withSkillsAndImage")]
+        [Route("withSkills")]
         public IHttpActionResult Post()
         {
             AssociateWithSkillsDTO associateDTO = null;
@@ -130,6 +130,13 @@ namespace SkillsTracker.API.Controllers
         {
             var result = _associateBAL.DeleteAssociate(id);
             return Ok(result);
+        }
+
+        [Route("dashboard")]
+        public IHttpActionResult GetDashboardData()
+        {
+            var dasboard = _associateBAL.GetDashboardData();
+            return Ok(dasboard);
         }
     }
 }

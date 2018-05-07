@@ -19,11 +19,13 @@ import { SliderComponent } from './_components/slider/slider.component';
 import { AssociateService } from './_services/associate.service';
 import { NumberOnlyDirective } from './_directives/number-only.directive';
 import { SkillFilterPipe } from './_pipes/skill-filter.pipe';
+import { AssociatesComponent } from './_components/associates/associates.component';
+import { DashboardResolver } from './_resolvers/dashboard.resolver';
 
 
 const routes: Routes = [
   { path: "addskill", component: AddSkillComponent },
-  { path: "home", component: HomeComponent },
+  { path: "home", component: HomeComponent, resolve: { dashboard: DashboardResolver } },
   { path: "newempskill", component: AddNewEmployeeSkillComponent },
   { path: "**", redirectTo: "addskill", pathMatch: "full" }
 ];
@@ -38,7 +40,8 @@ const routes: Routes = [
     SliderComponent,
     ContentEditableModelDirective,
     NumberOnlyDirective,
-    SkillFilterPipe
+    SkillFilterPipe,
+    AssociatesComponent
   ],
   imports: [  
     BrowserModule,
@@ -51,7 +54,8 @@ const routes: Routes = [
   ],
   providers: [
     SkillService,
-    AssociateService
+    AssociateService,
+    DashboardResolver
   ],
   bootstrap: [AppComponent]
 })

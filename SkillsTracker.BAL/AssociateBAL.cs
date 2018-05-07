@@ -5,6 +5,7 @@ using SkillsTracker.Entities;
 using SkillsTracker.Entities.DTO;
 using SkillsTracker.DAL.Repositories;
 using SkillsTracker.DAL;
+using System.Data;
 
 namespace AssociatesTracker.BAL
 {
@@ -114,6 +115,49 @@ namespace AssociatesTracker.BAL
                 var skillsDTO = skills.Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>).ToArray();                    
 
                 return new AssociateWithSkillsDTO() { Associate = associateDTO, Skills = skillsDTO };
+            }
+        }
+
+        public DashboardDTO GetDashboardData()
+        {
+            DashboardDTO dashboardDTO = null;
+            CandidatesDTO candidatesDTO = null;
+            TechDashboardDTO techDTO = null;
+            List<AssociatesDashboardDTO> lstAssociatesDTO = null;
+
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                DataTable dt = null;
+
+                var ds = unitOfWork.Associates.GetDashboardData();
+
+                if(ds.Tables.Count > 0)
+                {
+                    dt = ds.Tables[0];
+                    candidatesDTO = Mapper.Map<DataRow, CandidatesDTO>(dt.Rows[0]);
+                }
+
+                if(ds.Tables.Count > 1)
+                {
+                    dt = ds.Tables[1];
+                    techDTO = Mapper.Map<DataRow, TechDashboardDTO>(dt.Rows[0]);
+                }
+
+                if (ds.Tables.Count > 2)
+                {
+                    dt = ds.Tables[2];
+                    var rows = new List<DataRow>(dt.Rows.OfType<DataRow>());
+                    lstAssociatesDTO = Mapper.Map<List<DataRow>, List<AssociatesDashboardDTO>>(rows);
+                }
+
+                dashboardDTO = new DashboardDTO()
+                {
+                    Candidates = candidatesDTO,
+                    Technology = techDTO,
+                    Associates = lstAssociatesDTO
+                };
+
+                return dashboardDTO;
             }
         }
     }

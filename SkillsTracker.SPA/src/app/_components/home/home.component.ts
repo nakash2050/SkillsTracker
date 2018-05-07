@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AssociateDashboardModel } from './../../_models/associate.dashboard.model';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  dashboardData: any;
+  associatesDashboard: Array<AssociateDashboardModel>;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.dashboardData = data["dashboard"];
+
+      if(this.dashboardData != null){
+        this.associatesDashboard = <Array<AssociateDashboardModel>>(this.dashboardData.associates);
+      }
+    });
   }
 
 }

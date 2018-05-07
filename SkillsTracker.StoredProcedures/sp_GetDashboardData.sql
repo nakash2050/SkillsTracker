@@ -108,16 +108,19 @@ BEGIN
 		ON ASK.Skill_ID = SK.Skill_ID
 	WHERE SK.Skill_Name LIKE '%React%'
 
+	DECLARE @TotalSkillsCount INT
+	SELECT @TotalSkillsCount = (@TotalHTML5Candidates + @TotalCSS3Candidates + @TotalJavaCandidates + @TotalCSharpCandidates + @TotalRestfulCandidates + @TotalAngular1Candidates + @TotalAngular2Candidates + @TotalReactCandidates)
+
 
 	SELECT
-		CAST(ROUND(CAST(@TotalHTML5Candidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfHTML5Candidates],
-		CAST(ROUND(CAST(@TotalCSS3Candidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfCSS3Candidates],
-		CAST(ROUND(CAST(@TotalJavaCandidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfJavaCandidates],
-		CAST(ROUND(CAST(@TotalCSharpCandidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfCSharpCandidates],
-		CAST(ROUND(CAST(@TotalRestfulCandidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfRestfulCandidates],
-		CAST(ROUND(CAST(@TotalAngular1Candidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfAngular1Candidates],
-		CAST(ROUND(CAST(@TotalAngular2Candidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfAngular2Candidates],
-		CAST(ROUND(CAST(@TotalReactCandidates*100.0 / @TotalNumberOfCandidatesRated AS DECIMAL(10,2)), 0) AS INT) AS [PercentageOfReactCandidates]
+		CAST(CAST(@TotalHTML5Candidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfHTML5Candidates],
+		CAST(CAST(@TotalCSS3Candidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfCSS3Candidates],
+		CAST(CAST(@TotalJavaCandidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfJavaCandidates],
+		CAST(CAST(@TotalCSharpCandidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfCSharpCandidates],
+		CAST(CAST(@TotalRestfulCandidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfRestfulCandidates],
+		CAST(CAST(@TotalAngular1Candidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfAngular1Candidates],
+		CAST(CAST(@TotalAngular2Candidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfAngular2Candidates],
+		CAST(CAST(@TotalReactCandidates*100.0 / @TotalSkillsCount AS DECIMAL(10,2)) / 100 AS DECIMAL(10,2)) AS [PercentageOfReactCandidates]
 
 	--For Table
 	SELECT Associate_ID [AssociateID], AST.Name, AST.Email, AST.Mobile, AST.Picture, 

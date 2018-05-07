@@ -1,9 +1,10 @@
 ﻿using SkillsTracker.Entities;
-using SkillsTracker.Entities.DTO;
+using System.Data;
 
 namespace SkillsTracker.IRepositories
 {
     public interface IAssociatesRepository : IRepository<Associate>
     {
+        DataSet GetDashboardData();
     }
 }

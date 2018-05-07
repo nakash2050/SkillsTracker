@@ -17,7 +17,7 @@ export class AssociateService extends DataService {
   }
 
   addAssociateWithSkillsAndImage(formData: FormData) {
-    return this.post(this.controllerName + '/withSkillsAndImage', formData);
+    return this.post(this.controllerName + '/withSkills', formData);
   }
 
   updateAssociateWithSkills(associate: AssociateWithSkillsModel) {
@@ -26,5 +26,9 @@ export class AssociateService extends DataService {
 
   deleteAssociate(associateId) {
     return this.delete(this.controllerName + '/' + associateId);
+  }
+
+  getDashboardData() {
+    return this.get(this.controllerName + '/dashboard');
   }
 }
