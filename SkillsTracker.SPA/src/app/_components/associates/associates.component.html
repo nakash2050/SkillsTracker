@@ -24,7 +24,7 @@
         </th>
       </tr>
     </thead>
-    <tbody style="">
+    <tbody>
       <tr *ngFor="let associate of associates | associateFilter: nameSearch:empIdSearch:emailSearch:mobNoSearch:strongSkillsSearch">
         <td>
           <img [src]="associate.picture" style="width:30px;height:30px" *ngIf="associate.picture != ''">
@@ -36,7 +36,7 @@
         <td>{{ associate.mobile }}</td>
         <td style="width:30%">{{ associate.skills }}</td>
         <td align="center">
-          <button class="btn btn-sm btn-info" tooltip="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+          <a [routerLink]="['/updateemp', associate.associateID]" class="btn btn-sm btn-info" tooltip="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
           <button class="btn btn-sm btn-danger" tooltip="Delete"><span class="glyphicon glyphicon-remove"></span></button>
           <button class="btn btn-sm btn-warning" tooltip="View"><span class="glyphicon glyphicon-eye-open"></span></button>
         </td>

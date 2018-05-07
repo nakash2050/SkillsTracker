@@ -16,5 +16,5 @@ export interface AssociateWithSkillsModel {
   remark: string;
   strength: string;
   weakness: string;
-  skills: Array<AssociateWithSkillsModel>;
+  skills: Array<SkillModel>;
 }

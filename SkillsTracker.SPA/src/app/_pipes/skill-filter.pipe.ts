@@ -6,12 +6,12 @@ import { SkillModel } from '../_models/skill.model';
 })
 export class SkillFilterPipe implements PipeTransform {
 
-  transform(categories: SkillModel[], filter: string): SkillModel[] {
-    if (!categories || !filter) {
-      return categories;
+  transform(skills: SkillModel[], filter: string): SkillModel[] {    
+    if (!skills || !filter) {
+      return skills;
     }
 
-    return categories.filter(category => this.applyFilter(category, filter));
+    return skills.filter(category => this.applyFilter(category, filter));
   }
 
   applyFilter(skill: SkillModel, filter: string): boolean {

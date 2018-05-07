@@ -15,7 +15,7 @@ export class SkillService extends DataService {
     return this.get(this.controllerName);
   }
 
-  addSkill(skill: SkillModel) {
+  addSkill(skill: any) {
     return this.post(this.controllerName, skill);
   }
 

@@ -31,4 +31,8 @@ export class AssociateService extends DataService {
   getDashboardData() {
     return this.get(this.controllerName + '/dashboard');
   }
+
+  getAssociateWithSkills(empId){
+    return this.get(this.controllerName + '/withSkills/' + empId);
+  }
 }

@@ -1,0 +1,174 @@
+<div>
+  <div class="category-title">Add New Employee Skill</div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Name</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control input-sm" id="name" name="name" [(ngModel)]="empData.associate.name" #mName="ngModel"
+            placeholder="Enter Full Name" required>
+          <span class="help-block" *ngIf="mName.touched && mName.errors?.required">Please enter Candidate's full name</span>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="associateId" class="col-md-4 control-label">Associate ID</label>
+        <div class="col-md-8">
+          <input type="text" pattern="\d*" maxlength="6" class="form-control input-sm" id="associateId" name="associateId" [(ngModel)]="empData.associate.associateId"
+            #mAssociateId="ngModel" placeholder="Enter Associate ID" required numberOnly="true" disabled>
+          <span class="help-block" *ngIf="mAssociateId.touched && mAssociateId.errors?.required">Please enter Candidate's Employee ID</span>
+          <span class="help-block" *ngIf="mAssociateId.touched && mAssociateId.errors?.pattern">Please enter a valid Employee ID</span>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Email</label>
+        <div class="col-md-8">
+          <input type="email" class="form-control input-sm" id="email" name="email" [(ngModel)]="empData.associate.email" #mEmail="ngModel"
+            placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.required">Please enter Candidate's Email ID</span>
+          <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.pattern">Please enter a valid Email ID</span>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="txtName" class="col-md-4 control-label">Mobile</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control input-sm" id="mobile" name="mobile" [(ngModel)]="empData.associate.mobile" #mMobile="ngModel"
+            placeholder="Enter mobile number" required numberOnly="true" pattern="\d{10}" minlength="10" maxlength="10">
+          <span class="help-block" *ngIf="mMobile.touched && mMobile.errors?.required">Please enter Candidate's Mobile number</span>
+          <span class="help-block" *ngIf="mMobile.touched && mMobile.errors?.pattern">Please enter a 10 digit mobile number</span>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Gender</label>
+        <div class="btn-group col-md-8">
+          <label class="btn btn-default" [(ngModel)]="empData.associate.gender" name="gender" btnRadio="M" tabindex="0" role="button">
+            <span>Male</span>
+          </label>
+          <label class="btn btn-default" [(ngModel)]="empData.associate.gender" name="gender" btnRadio="F" tabindex="0" role="button">
+            <span>Female</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div>
+        <div class="box1" (click)="upload.click()">
+          <img [src]="empData.associate.picture" *ngIf="empData.associate.picture != null">
+          <span *ngIf="empData.associate.picture == null">Click to upload Image</span>
+        </div>
+        <input type="file" id="btnUpload" value="Upload" #upload (change)="fileChange($event)" class="upload" style="display: none"
+          accept=".jpg, .png, .jpeg, .gif, .bmp|images/*" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="btn-group-vertical" style="margin-top: 10px">
+        <label class="btn btn-success" [(ngModel)]="status" name="status" btnRadio="green" tabindex="0" role="button">
+          <span> Status Green</span>
+        </label>
+        <label class="btn btn-primary" [(ngModel)]="status" name="status" btnRadio="blue" tabindex="0" role="button">
+          <span> Status Blue</span>
+        </label>
+        <label class="btn btn-danger" [(ngModel)]="status" name="status" btnRadio="red" tabindex="0" role="button">
+          <span> Status Red</span>
+        </label>
+      </div>
+      <div class="btn-group-vertical" style="margin-top: 10px">
+        <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L1" tabindex="0" role="button">
+          <span>L1</span>
+        </label>
+        <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L2" tabindex="0" role="button">
+          <span>L2</span>
+        </label>
+        <label class="btn btn-default" [(ngModel)]="level" name="level" btnRadio="L3" tabindex="0" role="button">
+          <span>L3</span>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="remark" class="control-label">Remarks</label>
+        <div class="">
+          <textarea class="form-control input-sm" id="remark" name="remark" [(ngModel)]="empData.associate.remark" #mRemarks="ngModel"
+            placeholder="Enter Remarks" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="form-inline">
+          <b>Skills (Rating 0 - 20)</b>
+            <div class="form-group" style="margin-left: 30px;">
+              <input type="text" id="skillSearch" name="skillSearch" class="input-sm form-control" placeholder="Search Skill (Auto Filter)" [(ngModel)]="skillSearch" style="width:200px">
+            </div>
+            <div class="form-group" style="margin-left: 20px">
+              <input type="text" id="newSkillName" name="newSkillName" class="input-sm form-control" [(ngModel)]="newSkillName" placeholder="Add Skill" style="width:300px" #mNewSkill>
+              <button class="btn btn-sm btn-primary" (click)="addSkill(newSkillName)" [disabled]="mNewSkill.value == ''">Add</button>
+            </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="wrapper">
+          <div class="scrollable-panel">
+            <div class="force-overflow">
+              <div *ngFor="let skill of skills | skillFilter: skillSearch">
+                <app-slider [name]="skill.skillId" [(ngModel)]="skill.skillRating">{{skill.skillName}}</app-slider>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="pull-left">
+          <div class="form-inline">
+            <div class="form-group">
+              <label for="strength" class="col-md-3 control-label">Strength</label>
+              <div class="col-md-9">
+                <input type="text" id="strength" name="strength" [(ngModel)]="empData.associate.strength" #mStrength="ngModel" class="form-control input-sm"
+                  placeholder="Enter Candidate Strength">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="weakness" class="col-md-3 control-label">Weakness</label>
+              <div class="col-md-9">
+                <input type="text" id="weakness" name="weakness" [(ngModel)]="empData.associate.weakness" #mWeakness="ngModel" class="form-control input-sm"
+                  placeholder="Enter Candiate Weakness">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pull-right">
+          <input type="button" class="btn btn-danger btn-lg" value="Delete" (click)="reset(form)">
+          <a [routerLink]="['/home']" class="btn btn-info btn-lg">Cancel</a>
+          <input type="submit" class="btn btn-success btn-lg" value="Update" [disabled]="mName.invalid || mAssociateId.invalid || mEmail.invalid || mMobile.invalid"
+            (click)="update()">
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add new Employee Skills</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Employee data save: {{ dataSaved ? 'Successful' : 'Failed' }}</span>
+    <br>
+    <br>
+    <span *ngIf="associateExistsError != null">{{ associateExistsError }}</span>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>

@@ -24,13 +24,18 @@ import { AssociatesComponent } from './_components/associates/associates.compone
 import { DashboardResolver } from './_resolvers/dashboard.resolver';
 import { AssociateFilterPipe } from './_pipes/associate-filter.pipe';
 import { AppErrorHandler } from './_shared/app-error-handler';
+import { UpdateEmployeeSkillComponent } from './_components/update-employee-skill/update-employee-skill.component';
+import { EmployeeResolver } from './_resolvers/employee.resolver';
+import { SkillsResolver } from './_resolvers/skills.resolver.';
 
 
 const routes: Routes = [
   { path: "addskill", component: AddSkillComponent },
   { path: "home", component: HomeComponent, resolve: { dashboard: DashboardResolver } },
   { path: "newempskill", component: AddNewEmployeeSkillComponent },
-  { path: "**", redirectTo: "addskill", pathMatch: "full" }
+  { path: "updateemp/:id", component: UpdateEmployeeSkillComponent, resolve: { employee: EmployeeResolver, skills: SkillsResolver } },
+  { path: "addskill", component: AddSkillComponent },
+  { path: "**", redirectTo: "home", pathMatch: "full" }
 ];
 
 @NgModule({
@@ -45,9 +50,10 @@ const routes: Routes = [
     NumberOnlyDirective,
     AssociatesComponent,
     AssociateFilterPipe,
-    SkillFilterPipe
+    SkillFilterPipe,
+    UpdateEmployeeSkillComponent
   ],
-  imports: [  
+  imports: [    
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
@@ -61,6 +67,8 @@ const routes: Routes = [
     SkillService,
     AssociateService,
     DashboardResolver,
+    EmployeeResolver,
+    SkillsResolver,
     { provide: ErrorHandler, useClass: AppErrorHandler },
     { provide: BrowserXhr, useClass: NgProgressBrowserXhr }
   ],
