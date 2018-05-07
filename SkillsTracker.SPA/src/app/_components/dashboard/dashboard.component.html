@@ -1,99 +1,81 @@
-<div style="background-color: #f6f6f6;padding:0px" id="divContainer">
-  <canvas #html5 style="background-color: red" height="200">
-  </canvas>
-  <canvas #css3 style="background-color: lightyellow" height="200">
-  </canvas>
-  <canvas #java style="background-color: rgba(155, 185, 21, 0.63)" height="200">
-  </canvas>
-  <canvas #spring style="background-color: green" height="200">
-  </canvas>
-  <canvas #restful style="background-color: lightblue" height="200">
-  </canvas>
-  <canvas #angular1 style="background-color: pink" height="200">
-  </canvas>
-  <canvas #angular2 style="background-color: maroon" height="200">
-  </canvas>
-  <canvas #react style="background-color: lightgreen" height="200">
-  </canvas>
-</div>
-<div style="display: flex; justify-content: space-between">
-  <div>
-    <div class="container4">
-      <p>80%
-        <br/>
-        <span>Level 1 Candidates</span>
-      </p>
-    </div>
+<div>
+  <div style="background-color: #f6f6f6;padding:0px" id="divContainer">
+    <canvas #html5 style="background-color: red" height="200">
+    </canvas>
+    <canvas #css3 style="background-color: lightyellow" height="200">
+    </canvas>
+    <canvas #java style="background-color: rgba(155, 185, 21, 0.63)" height="200">
+    </canvas>
+    <canvas #spring style="background-color: green" height="200">
+    </canvas>
+    <canvas #restful style="background-color: lightblue" height="200">
+    </canvas>
+    <canvas #angular1 style="background-color: pink" height="200">
+    </canvas>
+    <canvas #angular2 style="background-color: maroon" height="200">
+    </canvas>
+    <canvas #react style="background-color: lightgreen" height="200">
+    </canvas>
   </div>
-  <div>
+  <div class="flex-container">
     <div class="container4">
-      <p>10%
+      <p>{{ candidatesDashboard.registeredCandidates }}
         <br/>
-        <span>Level 2 Candidates</span>
-      </p>
-    </div>
-  </div>
-  <div>
-    <div class="container4">
-      <p>10%
-        <br/>
-        <span>Level 3 Candidates</span>
-      </p>
-    </div>
-  </div>
-  <div>
-    <div class="container4">
-      <p>25001
-          <br/>
         <span>Registered Candidates</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>25%
+      <p>{{ candidatesDashboard.percentageOfFemaleCandidates }}%
         <br/>
         <span>Female Candidates</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>75%
+      <p>{{ candidatesDashboard.percentageOfMaleCandidates }}%
         <br/>
         <span>Male Candidates</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>20%
+      <p>{{ candidatesDashboard.percentageOfFreshers }}%
         <br/>
         <span>Candidates Freshers</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>2508
+      <p>{{ candidatesDashboard.candidatesRated }}
         <br/>
         <span>Candidates Rated</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>20%
+      <p>{{ candidatesDashboard.percentageOfFemaleCandidatesRated }}%
         <br/>
         <span>Female Candidates Rated</span>
       </p>
     </div>
-  </div>
-  <div>
     <div class="container4">
-      <p>80%
+      <p>{{ candidatesDashboard.percentageOfMaleCandidatesRated }}%
         <br/>
         <span>Male Candidates Rated</span>
+      </p>
+    </div>
+    <div class="container4">
+      <p>{{ candidatesDashboard.percentageOfLevel1Candidates }}%
+        <br/>
+        <span>Level 1 Candidates</span>
+      </p>
+    </div>
+    <div class="container4">
+      <p>{{ candidatesDashboard.percentageOfLevel2Candidates }}%
+        <br/>
+        <span>Level 2 Candidates</span>
+      </p>
+    </div>
+    <div class="container4">
+      <p>{{ candidatesDashboard.percentageOfLevel3Candidates }}%
+        <br/>
+        <span>Level 3 Candidates</span>
       </p>
     </div>
   </div>

@@ -18,7 +18,7 @@ export class AssociatesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.associates);
+    
   }
 
 }

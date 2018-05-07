@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import * as $ from 'jquery';
+import { CandidatedDashboardModel } from './../../_models/candidated.dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,8 @@ import * as $ from 'jquery';
 })
 export class DashboardComponent implements OnInit {
 
+  @Input('candidates') candidatesDashboard: CandidatedDashboardModel;
+  
   context: CanvasRenderingContext2D;
   @ViewChild("html5") html5Canvas: ElementRef;
   @ViewChild("css3") css3Canvas: ElementRef;
@@ -21,6 +24,7 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.candidatesDashboard);
   }
 
   ngAfterViewInit(): void {
