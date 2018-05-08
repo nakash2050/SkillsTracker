@@ -145,14 +145,9 @@ namespace SkillsTracker.API.Controllers
                             Directory.CreateDirectory(imagePath);
                         }
 
-                        var fileName = String.Format("{0}{1}", associateDTO.Associate.AssociateId, Path.GetExtension(postedFile.FileName));
+                        var fileName = String.Format("{0}_{1}{2}", associateDTO.Associate.AssociateId, DateTime.Now.ToString("MMddyyyHHmmss"), Path.GetExtension(postedFile.FileName));
 
                         var filePath = Path.Combine(imagePath, fileName);
-
-                        if(File.Exists(filePath))
-                        {
-                            File.Delete(filePath);
-                        }
 
                         postedFile.SaveAs(filePath);
 
