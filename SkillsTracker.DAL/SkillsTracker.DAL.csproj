@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.Designer.cs">
       <DependentUpon>201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805081502154_Add_sp_GetDashboardData.cs" />
+    <Compile Include="Migrations\201805081502154_Add_sp_GetDashboardData.Designer.cs">
+      <DependentUpon>201805081502154_Add_sp_GetDashboardData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssociateSkillsRepository.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.resx">
       <DependentUpon>201805060656094_UpdatedRatingColumnOfAssociateSkillsTableToSkillRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081502154_Add_sp_GetDashboardData.resx">
+      <DependentUpon>201805081502154_Add_sp_GetDashboardData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

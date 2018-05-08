@@ -109,10 +109,21 @@ namespace AssociatesTracker.BAL
             using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
             {
                 var associate = unitOfWork.Associates.Get(associateId);
-                var skills = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateId);
+                var skills = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateId)
+                             .Join(unitOfWork.Skills.GetAll(),
+                                astSkill => astSkill.SkillId,
+                                skill => skill.SkillId,
+                                (astSkill, skill) => new AssociateSkillsDTO()
+                                {
+                                    AssociateId = astSkill.AssociateId,
+                                    AssociateSkillsId = astSkill.AssociateSkillsId,
+                                    SkillId = astSkill.SkillId,
+                                    SkillName = skill.SkillName,
+                                    SkillRating = astSkill.SkillRating
+                                });
 
                 var associateDTO = Mapper.Map<AssociateDTO>(associate);
-                var skillsDTO = skills.Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>).ToArray();
+                var skillsDTO = skills.ToArray();
 
                 return new AssociateWithSkillsDTO() { Associate = associateDTO, Skills = skillsDTO };
             }

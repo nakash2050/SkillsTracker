@@ -14,5 +14,7 @@ namespace SkillsTracker.Entities.DTO
 
         [Required]
         public int SkillRating { get; set; }
+
+        public string SkillName { get; set; }
     }
 }

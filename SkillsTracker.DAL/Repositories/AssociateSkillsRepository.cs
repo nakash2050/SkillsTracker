@@ -17,7 +17,8 @@ namespace SkillsTracker.DAL.Repositories
 
         public IEnumerable<AssociateSkills> GetAssociateSkillByAssociateId(int associateId)
         {
-            return SkillsTrackerContext.AssociateSkills.Where(associate => associate.AssociateId == associateId);
+            var result = SkillsTrackerContext.AssociateSkills.Where(associate => associate.AssociateId == associateId).ToList();
+            return result;
         }
     }
 }
