@@ -1,11 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AssociateWithSkillsModel } from "../../_models/associate.model";
 import { SkillModel } from "../../_models/skill.model";
 import * as _ from "underscore";
 import { SkillService } from "./../../_services/skill.service";
 import { AssociateService } from "../../_services/associate.service";
-import { AlertifyService } from './../../_services/alertify.service';
+import { AlertifyService } from "./../../_services/alertify.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-update-employee-skill",
@@ -23,13 +24,16 @@ export class UpdateEmployeeSkillComponent implements OnInit {
   imageUrl;
   fileName: string;
   selectedFile: File;
+  @ViewChild("template") modalTemplate: ElementRef;
+  modalRef: BsModalRef;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private skillService: SkillService,
     private associateService: AssociateService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit() {
@@ -89,7 +93,7 @@ export class UpdateEmployeeSkillComponent implements OnInit {
 
     switch (this.status) {
       case "green":
-        this.empData.associate.statusGreen = true
+        this.empData.associate.statusGreen = true;
         this.empData.associate.statusBlue = false;
         this.empData.associate.statusRed = false;
         break;
@@ -116,7 +120,6 @@ export class UpdateEmployeeSkillComponent implements OnInit {
       }
     });
 
-  
     let formData: FormData = new FormData();
 
     if (this.selectedFile != null) {
@@ -124,14 +127,15 @@ export class UpdateEmployeeSkillComponent implements OnInit {
     }
     formData.append("formValue", JSON.stringify(this.empData));
 
-    this.associateService.updateAssociateWithSkillsAndImage(formData)
-    .subscribe(response => {
-      if(response.status) {
-        this.router.navigate(['/home']);
-      } else {
-        this.alertifyService.error("Employee data update unsuccessfull");
-      }
-    });
+    this.associateService
+      .updateAssociateWithSkillsAndImage(formData)
+      .subscribe(response => {
+        if (response.status) {
+          this.router.navigate(["/home"]);
+        } else {
+          this.alertifyService.error("Employee data update unsuccessfull");
+        }
+      });
   }
 
   addSkill(newSkillName) {
@@ -156,5 +160,22 @@ export class UpdateEmployeeSkillComponent implements OnInit {
     };
 
     reader.readAsDataURL(this.selectedFile);
+  }
+
+  openModal(template: any) {
+    this.modalRef = this.modalService.show(template, { class: "modal-md" });
+  }
+
+  confirm(id): void {
+    this.associateService.deleteAssociate(id).subscribe(response => {
+      if(response){
+        this.modalRef.hide();
+        this.router.navigate(['/home']);
+      }
+    });
+  }
+
+  decline(): void {
+    this.modalRef.hide();
   }
 }

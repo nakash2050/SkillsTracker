@@ -1,20 +1,26 @@
-<div>
+<div class="scrollable-skill-panel">
   <div class="category-title">Add Skill</div>
   <br>
   <form class="form-horizontal" #form="ngForm" (ngSubmit)="form">
-      <label for="inputEmail" class="col-md-2 control-label">Skill Name</label>
+      <label for="skillName" class="col-md-2 control-label">Search</label>
+      <div class="form-group">
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="searchSkill" placeholder="Search Skill" style="width:78%" autocomplete="off">
+        </div>
+      </div>
+      <label for="skillName" class="col-md-2 control-label">Skill Name</label>
       <div class="form-inline">
         <div class="col-md-8">
-          <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="skillName" placeholder="Enter skill name" style="width:80%" required>
+          <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="skillName" placeholder="Enter skill name" style="width:80%" required autocomplete="off">
             <button type="submit" class="btn btn-success" (click)="submit(form)"  [disabled]="skill.invalid">Submit</button>
-            <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+            <a routerLink="/newempskill" class="btn btn-default">Cancel</a>
             <span class="help-block" *ngIf="skill.touched && skill.errors?.required">Please enter a Category</span>
         </div>
       </div>
    </form>
    <br><br><br>
    <div class="col-md-7 col-md-offset-2">
-      <div class="form-inline" *ngFor="let skill of skills">
+      <div class="form-inline" *ngFor="let skill of skills | skillFilter: searchSkill">
           <div>
               <div class="alert alert-info">
                   <span class="category" [class.category-focus]="skill.isEdit" [id]="'spn' + skill.skillId" [attr.contenteditable]="skill.isEdit" [(contentEditableModel)]="skill.skillName">{{ skill.skillName }}</span>          

@@ -161,7 +161,7 @@ namespace SkillsTracker.API.Controllers
                 }
                 else
                 {
-                    var response = string.Format("Employee with ID: \"{0}\" already exists. Employee Name as per records is : \"{1}\"", associateInDb.AssociateId, associateInDb.Name);
+                    var response = string.Format("Employee with ID: \"{0}\" does not exits. ", associateInDb.AssociateId);
                     return BadRequest(response);
                 }
             }

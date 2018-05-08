@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 export class AddSkillComponent implements OnInit {
   skills: Array<SkillModel>;
   skillName: string;
+  searchSkill: string;
 
   constructor(
     private skillService: SkillService,
@@ -49,9 +50,5 @@ export class AddSkillComponent implements OnInit {
     } else {
       this.skillService.updateSkill(skill).subscribe(resp => resp, error => {});
     }
-  }
-
-  cancel(){
-    this.router.navigate(['/home']);
-  }
+  } 
 }

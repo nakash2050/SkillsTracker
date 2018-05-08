@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('HTML5', html5C.width/2, html5C.height/2);
 
     let css3C = (<HTMLCanvasElement>this.css3Canvas.nativeElement);
-    css3C.width = (divWidth * this.technologyDashboard.percentageOfCSS3Candidates) - safeLimit;
+    css3C.width = this.technologyDashboard.percentageOfCSS3Candidates != 0 ? (divWidth * this.technologyDashboard.percentageOfCSS3Candidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.css3Canvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('CSS3', css3C.width/2, css3C.height/2);
 
     let javaC = (<HTMLCanvasElement>this.javaCanvas.nativeElement);
-    javaC.width = (divWidth * this.technologyDashboard.percentageOfJavaCandidates) - safeLimit;
+    javaC.width = this.technologyDashboard.percentageOfJavaCandidates != 0 ? (divWidth * this.technologyDashboard.percentageOfJavaCandidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.javaCanvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('Java', javaC.width/2, javaC.height/2);
 
     let csharpC = (<HTMLCanvasElement>this.csharpCanvas.nativeElement);
-    csharpC.width = (divWidth * this.technologyDashboard.percentageOfCSharpCandidates) - safeLimit;
+    csharpC.width = this.technologyDashboard.percentageOfCSharpCandidates != 0 ? (divWidth * this.technologyDashboard.percentageOfCSharpCandidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.csharpCanvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -68,7 +68,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('C#', csharpC.width/2, csharpC.height/2);
 
     let restfulC = (<HTMLCanvasElement>this.restfulCanvas.nativeElement);
-    restfulC.width = (divWidth * this.technologyDashboard.percentageOfHTML5Candidates) - safeLimit;
+    restfulC.width = this.technologyDashboard.percentageOfHTML5Candidates != 0 ? (divWidth * this.technologyDashboard.percentageOfHTML5Candidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.restfulCanvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('Restful', restfulC.width/2, restfulC.height/2);
 
     let angular1C = (<HTMLCanvasElement>this.angular1Canvas.nativeElement);
-    angular1C.width = (divWidth * this.technologyDashboard.percentageOfAngular1Candidates) - safeLimit;
+    angular1C.width = this.technologyDashboard.percentageOfAngular1Candidates != 0 ? (divWidth * this.technologyDashboard.percentageOfAngular1Candidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.angular1Canvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('Angular1', angular1C.width/2, angular1C.height/2);
 
     let angular2C = (<HTMLCanvasElement>this.angular2Canvas.nativeElement);
-    angular2C.width = (divWidth * this.technologyDashboard.percentageOfAngular2Candidates) - safeLimit;
+    angular2C.width = this.technologyDashboard.percentageOfAngular2Candidates != 0 ? (divWidth * this.technologyDashboard.percentageOfAngular2Candidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.angular2Canvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;
@@ -92,7 +92,7 @@ export class DashboardComponent implements OnInit {
     this.context.fillText('Angular2', angular2C.width/2, angular2C.height/2);
 
     let reactC = (<HTMLCanvasElement>this.reactCanvas.nativeElement);
-    reactC.width = (divWidth * this.technologyDashboard.percentageOfReactCandidates) - safeLimit;
+    reactC.width = this.technologyDashboard.percentageOfReactCandidates != 0 ? (divWidth * this.technologyDashboard.percentageOfReactCandidates) - safeLimit : 0;
     this.context = (<HTMLCanvasElement>this.reactCanvas.nativeElement).getContext('2d');
     this.context.font = font;
     this.context.fillStyle = fillStyle;

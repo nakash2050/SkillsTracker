@@ -162,26 +162,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
 
   cancel() {
     this.router.navigate(["/home"]);
-  }
-
-  getAss(){
-    this.associateService.getAssociateWithSkills('295380')
-    .subscribe(response => {
-      console.log(response);
-    });
-  }
-
-  openModal(template: any) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
-  }
- 
-  confirm(): void {
-    this.modalRef.hide();
-  }
- 
-  decline(): void {
-    this.modalRef.hide();
-  }
+  }  
 
   fileChange(event) {
     this.selectedFile = <File>event.target.files[0];

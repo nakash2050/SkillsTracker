@@ -37,10 +37,17 @@
         <td style="width:30%">{{ associate.skills }}</td>
         <td align="center">
           <a [routerLink]="['/updateemp', associate.associateID]" class="btn btn-sm btn-info" tooltip="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
-          <button class="btn btn-sm btn-danger" tooltip="Delete"><span class="glyphicon glyphicon-remove"></span></button>
+          <button class="btn btn-sm btn-danger" tooltip="Delete" (click)="openModal(template, associate)"><span class="glyphicon glyphicon-remove"></span></button>
           <button class="btn btn-sm btn-warning" tooltip="View"><span class="glyphicon glyphicon-eye-open"></span></button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Are you sure you want to delete the employee?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+  </div>
+</ng-template>
