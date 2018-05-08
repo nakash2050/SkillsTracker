@@ -218,9 +218,11 @@ namespace AssociatesTracker.BAL
                         {
                             if (skillsInDb.Count() > 0)
                             {
-                                foreach (var skill in associateDTO.Skills)
+                                var skills = associateDTO.Skills.Where(skill => skillsInDb.Any(skillFromDb => skillFromDb.SkillId == skill.SkillId));
+
+                                foreach (var skill in skills)
                                 {
-                                    skillsInDb.Where(newSkill => newSkill.SkillId == skill.SkillId).FirstOrDefault().SkillRating = skill.SkillRating;
+                                    skillsInDb.Where(newSkill => newSkill.SkillId == skill.SkillId).First().SkillRating = skill.SkillRating;
                                 }
 
                                 saved = unitOfWork.Complete() > 0;
