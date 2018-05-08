@@ -117,6 +117,63 @@ namespace SkillsTracker.API.Controllers
             return BadRequest("Error in data");
         }
 
+        [Route("withSkills")]
+        public IHttpActionResult Put()
+        {
+            AssociateWithSkillsDTO associateDTO = null;
+            string imageUrl = string.Empty;
+            var httpRequest = HttpContext.Current.Request;
+
+            foreach (var key in httpRequest.Form.AllKeys)
+            {
+                var data = httpRequest.Form[key];
+                associateDTO = JsonConvert.DeserializeObject<AssociateWithSkillsDTO>(data);
+            }
+
+            if (associateDTO != null)
+            {
+                var associateInDb = _associateBAL.GetAssociate(associateDTO.Associate.AssociateId);
+
+                if (associateInDb != null)
+                {
+                    if (httpRequest.Files.Count > 0)
+                    {
+                        var postedFile = httpRequest.Files[0];
+                        var imagePath = HttpContext.Current.Server.MapPath("~/Images/");
+                        if (!Directory.Exists(imagePath))
+                        {
+                            Directory.CreateDirectory(imagePath);
+                        }
+
+                        var fileName = String.Format("{0}{1}", associateDTO.Associate.AssociateId, Path.GetExtension(postedFile.FileName));
+
+                        var filePath = Path.Combine(imagePath, fileName);
+
+                        if(File.Exists(filePath))
+                        {
+                            File.Delete(filePath);
+                        }
+
+                        postedFile.SaveAs(filePath);
+
+                        imageUrl = String.Format("{0}/{1}/{2}", ConfigurationManager.AppSettings["ApiBaseURL"], "Images", fileName);
+                        associateDTO.Associate.Picture = imageUrl;
+                    }
+
+                    var response = _associateBAL.UpdateAssociateWithSkills(associateDTO);
+
+                    return Ok(new { status = response, ImageUrl = imageUrl });
+                }
+                else
+                {
+                    var response = string.Format("Employee with ID: \"{0}\" already exists. Employee Name as per records is : \"{1}\"", associateInDb.AssociateId, associateInDb.Name);
+                    return BadRequest(response);
+                }
+            }
+
+            return BadRequest("Error in data");
+        }
+
         public IHttpActionResult Put(int id, AssociateDTO associateDTO)
         {
             if (!ModelState.IsValid)

@@ -67,7 +67,7 @@ namespace AssociatesTracker.BAL
             }
         }
 
-        public bool UpdateAssociate(int id, AssociateDTO AssociateDTO)
+        public bool UpdateAssociate(int id, AssociateDTO associateDTO)
         {
             int result = 0;
 
@@ -77,8 +77,8 @@ namespace AssociatesTracker.BAL
 
                 if (associateInDB != null)
                 {
-                    AssociateDTO.AssociateId = id;
-                    Mapper.Map(AssociateDTO, associateInDB);
+                    associateDTO.AssociateId = id;
+                    Mapper.Map(associateDTO, associateInDB);
                     result = unitOfWork.Complete();
                 }
 
@@ -112,7 +112,7 @@ namespace AssociatesTracker.BAL
                 var skills = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateId);
 
                 var associateDTO = Mapper.Map<AssociateDTO>(associate);
-                var skillsDTO = skills.Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>).ToArray();                    
+                var skillsDTO = skills.Select(Mapper.Map<AssociateSkills, AssociateSkillsDTO>).ToArray();
 
                 return new AssociateWithSkillsDTO() { Associate = associateDTO, Skills = skillsDTO };
             }
@@ -131,13 +131,13 @@ namespace AssociatesTracker.BAL
 
                 var ds = unitOfWork.Associates.GetDashboardData();
 
-                if(ds.Tables.Count > 0)
+                if (ds.Tables.Count > 0)
                 {
                     dt = ds.Tables[0];
                     candidatesDTO = Mapper.Map<DataRow, CandidatesDTO>(dt.Rows[0]);
                 }
 
-                if(ds.Tables.Count > 1)
+                if (ds.Tables.Count > 1)
                 {
                     dt = ds.Tables[1];
                     techDTO = Mapper.Map<DataRow, TechDashboardDTO>(dt.Rows[0]);
@@ -160,5 +160,73 @@ namespace AssociatesTracker.BAL
                 return dashboardDTO;
             }
         }
+
+        public bool UpdateAssociateWithSkills(AssociateWithSkillsDTO associateDTO)
+        {
+            bool saved = false;
+
+            using (var unitOfWork = new UnitOfWork(new SkillsTrackerContext()))
+            {
+                try
+                {
+                    var associateInDB = unitOfWork.Associates.Get(associateDTO.Associate.AssociateId);
+                    var skillsInDb = unitOfWork.AssociateSkills.GetAssociateSkillByAssociateId(associateDTO.Associate.AssociateId);
+
+                    if (associateInDB != null)
+                    {
+                        Mapper.Map(associateDTO.Associate, associateInDB);
+                        saved = unitOfWork.Complete() > 0;
+                    }
+
+                    if (skillsInDb != null)
+                    {
+                        if (associateDTO.Skills != null)
+                        {
+                            var skillsExcluded = skillsInDb.Where(skill => !associateDTO.Skills.Any(skillFromUpdate => skillFromUpdate.SkillId == skill.SkillId));
+
+                            if (skillsExcluded != null && skillsExcluded.Count() > 0)
+                            {
+                                unitOfWork.AssociateSkills.RemoveRange(skillsExcluded);
+                                saved = unitOfWork.Complete() > 0;
+                            }
+                        }
+                    }
+
+                    if (associateDTO.Skills != null)
+                    {
+                        var skillsIncluded = associateDTO.Skills.Where(skill => !skillsInDb.Any(skillFromDb => skillFromDb.SkillId == skill.SkillId));
+
+                        if (skillsIncluded != null && skillsIncluded.Count() > 0)
+                        {
+                            var skills = Mapper.Map<IEnumerable<AssociateSkills>>(skillsIncluded);
+                            unitOfWork.AssociateSkills.AddRange(skills);
+                            saved = unitOfWork.Complete() > 0;
+                        }
+
+                        if (skillsInDb != null)
+                        {
+                            if (skillsInDb.Count() > 0)
+                            {
+                                foreach (var skill in associateDTO.Skills)
+                                {
+                                    skillsInDb.Where(newSkill => newSkill.SkillId == skill.SkillId).FirstOrDefault().SkillRating = skill.SkillRating;
+                                }
+
+                                saved = unitOfWork.Complete() > 0;
+                            }
+                        }
+                    }
+
+                    saved = true;
+                }
+                catch
+                {
+                    saved = false;
+                }
+            }
+
+            return saved;
+        }
+
     }
 }

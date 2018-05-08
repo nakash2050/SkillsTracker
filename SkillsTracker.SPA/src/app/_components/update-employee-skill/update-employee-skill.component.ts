@@ -4,6 +4,8 @@ import { AssociateWithSkillsModel } from "../../_models/associate.model";
 import { SkillModel } from "../../_models/skill.model";
 import * as _ from "underscore";
 import { SkillService } from "./../../_services/skill.service";
+import { AssociateService } from "../../_services/associate.service";
+import { AlertifyService } from './../../_services/alertify.service';
 
 @Component({
   selector: "app-update-employee-skill",
@@ -25,7 +27,9 @@ export class UpdateEmployeeSkillComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private skillService: SkillService
+    private skillService: SkillService,
+    private associateService: AssociateService,
+    private alertifyService: AlertifyService
   ) {}
 
   ngOnInit() {
@@ -68,31 +72,43 @@ export class UpdateEmployeeSkillComponent implements OnInit {
     switch (this.level) {
       case "L1":
         this.empData.associate.level1 = true;
+        this.empData.associate.level2 = false;
+        this.empData.associate.level3 = false;
         break;
       case "L2":
         this.empData.associate.level2 = true;
+        this.empData.associate.level1 = false;
+        this.empData.associate.level3 = false;
         break;
       case "L3":
         this.empData.associate.level3 = true;
+        this.empData.associate.level1 = false;
+        this.empData.associate.level2 = false;
         break;
     }
 
     switch (this.status) {
       case "green":
-        this.empData.associate.statusGreen = true;
+        this.empData.associate.statusGreen = true
+        this.empData.associate.statusBlue = false;
+        this.empData.associate.statusRed = false;
         break;
       case "blue":
         this.empData.associate.statusBlue = true;
+        this.empData.associate.statusGreen = false;
+        this.empData.associate.statusRed = false;
         break;
       case "red":
         this.empData.associate.statusRed = true;
+        this.empData.associate.statusBlue = false;
+        this.empData.associate.statusGreen = false;
         break;
     }
 
-    this.empData.associate.skills = [];
+    this.empData.skills = [];
     Object.keys(this.skills).forEach(key => {
       if (this.skills[key].skillRating != 0) {
-        this.empData.associate.skills.push({
+        this.empData.skills.push({
           associateId: this.empData.associate.associateId,
           skillId: this.skills[key].skillId,
           skillRating: this.skills[key].skillRating
@@ -100,12 +116,22 @@ export class UpdateEmployeeSkillComponent implements OnInit {
       }
     });
 
+  
     let formData: FormData = new FormData();
 
     if (this.selectedFile != null) {
       formData.append("uploadFile", this.selectedFile, this.selectedFile.name);
     }
     formData.append("formValue", JSON.stringify(this.empData));
+
+    this.associateService.updateAssociateWithSkillsAndImage(formData)
+    .subscribe(response => {
+      if(response.status) {
+        this.router.navigate(['/home']);
+      } else {
+        this.alertifyService.error("Employee data update unsuccessfull");
+      }
+    });
   }
 
   addSkill(newSkillName) {
