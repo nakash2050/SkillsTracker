@@ -11,10 +11,16 @@ import { SkillService } from "./../../_services/skill.service";
   styleUrls: ["./update-employee-skill.component.css"]
 })
 export class UpdateEmployeeSkillComponent implements OnInit {
-  empData: AssociateWithSkillsModel;
+  empData: any;
   skills: Array<SkillModel>;
   skillSearch: string;
   newSkillName: string;
+  status = "";
+  gender = "";
+  level = "";
+  imageUrl;
+  fileName: string;
+  selectedFile: File;
 
   constructor(
     private router: Router,
@@ -24,8 +30,28 @@ export class UpdateEmployeeSkillComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.empData = <AssociateWithSkillsModel>data["employee"];
+      this.empData = data["employee"];
       this.skills = data["skills"];
+
+      if (this.empData.associate) {
+        this.imageUrl = this.empData.associate.picture;
+
+        if (this.empData.associate.level1) {
+          this.level = "L1";
+        } else if (this.empData.associate.level2) {
+          this.level = "L2";
+        } else {
+          this.level = "L3";
+        }
+
+        if (this.empData.associate.statusGreen) {
+          this.status = "green";
+        } else if (this.empData.associate.statusBlue) {
+          this.status = "blue";
+        } else {
+          this.status = "red";
+        }
+      }
     });
 
     if (this.empData.skills && this.empData.skills.length > 0) {
@@ -39,7 +65,47 @@ export class UpdateEmployeeSkillComponent implements OnInit {
   }
 
   update() {
-    console.log(this.skills);
+    switch (this.level) {
+      case "L1":
+        this.empData.associate.level1 = true;
+        break;
+      case "L2":
+        this.empData.associate.level2 = true;
+        break;
+      case "L3":
+        this.empData.associate.level3 = true;
+        break;
+    }
+
+    switch (this.status) {
+      case "green":
+        this.empData.associate.statusGreen = true;
+        break;
+      case "blue":
+        this.empData.associate.statusBlue = true;
+        break;
+      case "red":
+        this.empData.associate.statusRed = true;
+        break;
+    }
+
+    this.empData.associate.skills = [];
+    Object.keys(this.skills).forEach(key => {
+      if (this.skills[key].skillRating != 0) {
+        this.empData.associate.skills.push({
+          associateId: this.empData.associate.associateId,
+          skillId: this.skills[key].skillId,
+          skillRating: this.skills[key].skillRating
+        });
+      }
+    });
+
+    let formData: FormData = new FormData();
+
+    if (this.selectedFile != null) {
+      formData.append("uploadFile", this.selectedFile, this.selectedFile.name);
+    }
+    formData.append("formValue", JSON.stringify(this.empData));
   }
 
   addSkill(newSkillName) {
@@ -52,5 +118,17 @@ export class UpdateEmployeeSkillComponent implements OnInit {
         this.newSkillName = "";
       }
     });
+  }
+
+  fileChange(event) {
+    this.selectedFile = <File>event.target.files[0];
+    this.fileName = this.selectedFile.name;
+    var reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    };
+
+    reader.readAsDataURL(this.selectedFile);
   }
 }

@@ -14,6 +14,7 @@ import { Form, FormControl, FormGroup, AbstractControl } from "@angular/forms";
 import { BadRequestError } from "./../../_shared/bad-request-error";
 import { Observable } from "rxjs/Observable";
 import { Http, RequestOptions } from "@angular/http";
+import { AlertifyService } from "./../../_services/alertify.service";
 
 @Component({
   selector: "app-add-new-employee-skill",
@@ -37,14 +38,17 @@ export class AddNewEmployeeSkillComponent implements OnInit {
   weakness = "";
   form: FormGroup;
   associateExistsError: string = null;
-  imageUrl;  
+  imageUrl;
+  fileName: string;
+  selectedFile: File;
 
   constructor(
     private skillService: SkillService,
     private router: Router,
     private associateService: AssociateService,
     private modalService: BsModalService,
-    private http: Http
+    private http: Http,
+    private alertifyService: AlertifyService
   ) {}
 
   ngOnInit() {
@@ -52,8 +56,6 @@ export class AddNewEmployeeSkillComponent implements OnInit {
       this.skills = <Array<SkillModel>>response;
     });
   }
-
-  selectedFile: File;
 
   submit(form) {
     const associateData: any = {
@@ -116,7 +118,11 @@ export class AddNewEmployeeSkillComponent implements OnInit {
       response => {
         this.dataSaved = response.status;
         this.associateExistsError = null;
-        this.modalRef = this.modalService.show(this.modalTemplate);
+        if (this.dataSaved) {
+          this.alertifyService.success("Employee data saved successfully");
+        } else {
+          this.alertifyService.error("Employee data saved unsuccessfull");
+        }
         this.reset(form);
       },
       error => {
@@ -125,7 +131,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
           this.associateExistsError = JSON.parse(
             err.originalError._body
           ).message;
-          this.modalRef = this.modalService.show(this.modalTemplate);
+          this.alertifyService.error(this.associateExistsError);
         }
       }
     );
@@ -142,7 +148,7 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     this.status = "green";
     this.gender = "M";
     this.level = "L1";
-    this.imageUrl = null;    
+    this.imageUrl = null;
 
     Object.keys(form.controls).forEach(main => {
       let control = form.controls[main];
@@ -158,7 +164,24 @@ export class AddNewEmployeeSkillComponent implements OnInit {
     this.router.navigate(["/home"]);
   }
 
-  fileName: string;
+  getAss(){
+    this.associateService.getAssociateWithSkills('295380')
+    .subscribe(response => {
+      console.log(response);
+    });
+  }
+
+  openModal(template: any) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+ 
+  confirm(): void {
+    this.modalRef.hide();
+  }
+ 
+  decline(): void {
+    this.modalRef.hide();
+  }
 
   fileChange(event) {
     this.selectedFile = <File>event.target.files[0];

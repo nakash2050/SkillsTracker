@@ -27,6 +27,7 @@ import { AppErrorHandler } from './_shared/app-error-handler';
 import { UpdateEmployeeSkillComponent } from './_components/update-employee-skill/update-employee-skill.component';
 import { EmployeeResolver } from './_resolvers/employee.resolver';
 import { SkillsResolver } from './_resolvers/skills.resolver.';
+import { AlertifyService } from './_services/alertify.service';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
   providers: [
     SkillService,
     AssociateService,
+    AlertifyService,
     DashboardResolver,
     EmployeeResolver,
     SkillsResolver,
