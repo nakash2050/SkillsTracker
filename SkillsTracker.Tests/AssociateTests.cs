@@ -162,5 +162,38 @@ namespace AssociatesTracker.Tests
 
             Assert.IsFalse(isModelStateValid);
         }
+
+        [TestMethod]
+        public void GetDashboardData_ReturnsDashboardData()
+        {
+            IHttpActionResult actionResult = _associateController.GetDashboardData();
+            var contentResult = actionResult as OkNegotiatedContentResult<DashboardDTO>;
+
+            Assert.IsNotNull(contentResult);
+            Assert.IsNotNull(contentResult.Content);
+            Assert.IsNotNull(contentResult.Content.Associates);
+            Assert.IsNotNull(contentResult.Content.Candidates);
+            Assert.IsNotNull(contentResult.Content.Technology);
+        }
+
+        public void GetAssociateSkills_PassValidAssociateId_ReturnsValidAssociateWithSkills()
+        {
+            IHttpActionResult actionResult = _associateController.Get();
+            var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+
+            Assert.IsNotNull(contentResult);
+            Assert.IsNotNull(contentResult.Content);
+
+            var associate = contentResult.Content.FirstOrDefault();
+
+            IHttpActionResult getActionResult = _associateController.GetAssociateWithSkills(associate.AssociateId);
+            var getContentResult = getActionResult as OkNegotiatedContentResult<AssociateWithSkillsDTO>;
+
+            Assert.IsNotNull(getContentResult);
+            Assert.IsNotNull(getContentResult.Content);
+            Assert.IsNotNull(getContentResult.Content.Associate);
+            Assert.IsNotNull(getContentResult.Content.Skills);
+            Assert.AreEqual(associate.AssociateId, getContentResult.Content.Associate.AssociateId);
+        }
     }
 }
