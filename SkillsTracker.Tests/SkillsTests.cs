@@ -112,6 +112,8 @@ namespace SkillsTracker.Tests
         [TestMethod]
         public void DeleteSkill_ValidSkill_ReturnsTrue()
         {
+            AddNewSkill_ValidSkill_ReturnsAllSkills();
+
             IHttpActionResult actionResult = _skillController.Get();
             var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<SkillDTO>>;
 
