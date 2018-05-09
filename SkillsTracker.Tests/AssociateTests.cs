@@ -103,6 +103,8 @@ namespace AssociatesTracker.Tests
         [TestMethod]
         public void UpdateAssociate_ValidAssociate_ReturnsTrue()
         {
+            AddNewAssociate_ValidAssociate_ReturnsAllAssociates();
+
             IHttpActionResult actionResult = _associateController.Get();
             var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
 
