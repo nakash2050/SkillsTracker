@@ -26,8 +26,8 @@
       <div class="form-group">
         <label for="txtName" class="col-md-4 control-label">Email</label>
         <div class="col-md-8">
-          <input type="email" class="form-control input-sm" id="email" name="email" [(ngModel)]="empData.associate.email" #mEmail="ngModel"
-            placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <input type="text" class="form-control input-sm" id="email" name="email" [(ngModel)]="empData.associate.email" #mEmail="ngModel"
+            placeholder="Enter email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
           <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.required">Please enter Candidate's Email ID</span>
           <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.pattern">Please enter a valid Email ID</span>
         </div>

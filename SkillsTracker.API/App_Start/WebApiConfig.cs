@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.ExceptionHandling;
 
 namespace SkillsTracker.API
 {
@@ -13,6 +14,7 @@ namespace SkillsTracker.API
                                               "Origin, Content-Type, Accept",
                                               "GET, PUT, POST, DELETE, OPTIONS");
             config.EnableCors(enableCorsAttribute);
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
 
             // Web API configuration and services
             var settings = config.Formatters.JsonFormatter.SerializerSettings;

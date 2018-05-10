@@ -1,14 +1,18 @@
 <ng-progress thick="true" spinnerPosition="left"></ng-progress>
-<div class="col-lg-10 col-lg-offset-1">
-  <div class="panel panel-primary">
-    <div class="panel-heading main-panel-heading">Skills Tracker</div>
-    <div class="panel-body">
-      <div class="wrapper">
-        <div class="scrollable-panel-main" id="style-3">
-          <div class="force-overflow">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
+        <span class="main-panel-heading">Skills Tracker</span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="scrollable-panel-main" id="style-3">
+      <div class="force-overflow">
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

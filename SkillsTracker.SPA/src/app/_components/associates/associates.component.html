@@ -8,13 +8,13 @@
           <input type="text" class="form-control input-sm" placeholder="Search By Name" [(ngModel)]="nameSearch">
         </th>
         <th>
-          <input type="text" class="form-control input-sm" placeholder="Search By Employee ID" [(ngModel)]="empIdSearch">
+          <input type="text" class="form-control input-sm" placeholder="Search By ID" [(ngModel)]="empIdSearch">
         </th>
         <th>
           <input type="text" class="form-control input-sm" placeholder="Search By Email ID" [(ngModel)]="emailSearch">
         </th>
         <th>
-          <input type="text" class="form-control input-sm" placeholder="Search By Mobile No" [(ngModel)]="mobNoSearch">
+          <input type="text" class="form-control input-sm" placeholder="Search By Mobile" [(ngModel)]="mobNoSearch">
         </th>
         <th>
           <input type="text" class="form-control input-sm" placeholder="Search By Strong Skills" [(ngModel)]="strongSkillsSearch">
@@ -26,15 +26,16 @@
     </thead>
     <tbody>
       <tr *ngFor="let associate of associates | associateFilter: nameSearch:empIdSearch:emailSearch:mobNoSearch:strongSkillsSearch">
-        <td>
-          <img [src]="associate.picture" style="width:30px;height:30px" *ngIf="associate.picture != ''">
+        <td align="center">
+          <img [src]="associate.picture" style="" *ngIf="associate.picture != ''">
+          <div class="img-holder" *ngIf="associate.picture == ''"></div>
         </td>
         <td align="center">
           <div [ngClass]="{'green': associate.status == 'GREEN', 'blue': associate.status == 'BLUE', 'red': associate.status == 'RED'}"
             [tooltip]="associate.status == 'GREEN' ? 'Available for Allocation' : associate.status == 'BLUE' ? 'Allocation In-process' : 'Allotted and Tagged'"></div>
         </td>
         <td>{{ associate.name }}</td>
-        <td style="width:15%">{{ associate.associateID }}</td>
+        <td style="width:10%">{{ associate.associateID }}</td>
         <td>{{ associate.email }}</td>
         <td>{{ associate.mobile }}</td>
         <td style="width:30%">{{ associate.skills }}</td>
