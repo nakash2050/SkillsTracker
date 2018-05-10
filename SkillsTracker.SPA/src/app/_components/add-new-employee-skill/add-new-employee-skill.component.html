@@ -3,7 +3,7 @@
   <br>
   <form #form="ngForm" (ngSubmit)="submit(form)">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="form-group">
           <label for="txtName" class="col-md-4 control-label">Name</label>
           <div class="col-md-8">
@@ -53,9 +53,18 @@
               <span>Female</span>
             </label>
           </div>
+          <br *ngIf="mMobile.touched && (mMobile.errors?.required || mMobile.errors?.pattern)">
+        </div>
+        <br><br><br *ngIf="mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern || mAssociateId.errors?.required || mAssociateId.errors?.pattern || mEmail.errors?.required)">
+        <div class="form-group">
+          <label for="remark" class="col-md-4 control-label">Remarks</label>
+          <div class="col-md-8">
+            <textarea class="form-control input-sm" id="remark" name="remark" [(ngModel)]="remark" #mRemarks="ngModel" placeholder="Enter Remarks"
+              rows="2"></textarea>
+          </div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div>
           <div class="box1" (click)="upload.click()">
             <img [src]="imageUrl" *ngIf="imageUrl != null">
@@ -65,7 +74,7 @@
             accept=".jpg, .png, .jpeg, .gif, .bmp|images/*" />
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-4">
         <div class="btn-group-vertical" style="margin-top: 10px">
           <label class="btn btn-success" [(ngModel)]="status" name="status" btnRadio="green" tabindex="0" role="button">
             <span> Status Green</span>
@@ -89,15 +98,7 @@
           </label>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label for="remark" class="control-label">Remarks</label>
-          <div class="">
-            <textarea class="form-control input-sm" id="remark" name="remark" [(ngModel)]="remark" #mRemarks="ngModel" placeholder="Enter Remarks"
-              rows="5"></textarea>
-          </div>
-        </div>
-      </div>
+
     </div>
     <hr>
     <div>
