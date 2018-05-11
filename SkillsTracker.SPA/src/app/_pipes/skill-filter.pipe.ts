@@ -15,6 +15,6 @@ export class SkillFilterPipe implements PipeTransform {
   }
 
   applyFilter(skill: SkillModel, filter: string): boolean {
-    return skill.skillName.toLowerCase().trim().indexOf(filter) >= 0;
+    return skill.skillName.toLowerCase().trim().indexOf(filter.toLowerCase().trim()) >= 0;
   }
 }

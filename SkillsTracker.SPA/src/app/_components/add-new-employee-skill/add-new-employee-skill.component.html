@@ -4,7 +4,7 @@
   <form #form="ngForm" (ngSubmit)="submit(form)">
     <div class="row">
       <div class="col-md-5">
-        <div class="form-group">
+        <div class="form-group" [class.has-error]="mName.touched && (mName.errors?.required)">
           <label for="txtName" class="col-md-4 control-label">Name</label>
           <div class="col-md-8">
             <input type="text" class="form-control input-sm" id="name" name="name" [(ngModel)]="name" #mName="ngModel" placeholder="Enter Full Name"
@@ -12,8 +12,8 @@
             <span class="help-block" *ngIf="mName.touched && mName.errors?.required">Please enter Candidate's full name</span>
           </div>
         </div>
-        <br>
-        <div class="form-group">
+        <br><br *ngIf="(mName.touched && mName.errors?.required) || (mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)) || (mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)) || (mMobile.touched && (mMobile.errors?.pattern || mMobile.errors?.required))">
+        <div class="form-group" [class.has-error]="mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)">
           <label for="associateId" class="col-md-4 control-label">Associate ID</label>
           <div class="col-md-8">
             <input type="text" pattern="\d*" maxlength="6" class="form-control input-sm" id="associateId" name="associateId" [(ngModel)]="associateId"
@@ -22,8 +22,8 @@
             <span class="help-block" *ngIf="mAssociateId.touched && mAssociateId.errors?.pattern">Please enter a valid Employee ID</span>
           </div>
         </div>
-        <br>
-        <div class="form-group">
+        <br><br *ngIf="(mName.touched && mName.errors?.required) || (mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)) || (mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)) || (mMobile.touched && (mMobile.errors?.pattern || mMobile.errors?.required))">
+        <div class="form-group" [class.has-error]="mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)">
           <label for="txtName" class="col-md-4 control-label">Email</label>
           <div class="col-md-8">
             <input type="text" class="form-control input-sm" id="email" name="email" [(ngModel)]="email" #mEmail="ngModel" placeholder="Enter email"
@@ -32,8 +32,8 @@
             <span class="help-block" *ngIf="mEmail.touched && mEmail.errors?.pattern">Please enter a valid Email ID</span>
           </div>
         </div>
-        <br>
-        <div class="form-group">
+        <br><br *ngIf="(mName.touched && mName.errors?.required) || (mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)) || (mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)) || (mMobile.touched && (mMobile.errors?.pattern || mMobile.errors?.required))">
+        <div class="form-group" [class.has-error]="mMobile.touched && (mMobile.errors?.required || mMobile.errors?.pattern)">
           <label for="txtName" class="col-md-4 control-label">Mobile</label>
           <div class="col-md-8">
             <input type="text" class="form-control input-sm" id="mobile" name="mobile" [(ngModel)]="mobile" #mMobile="ngModel" placeholder="Enter mobile number"
@@ -42,7 +42,7 @@
             <span class="help-block" *ngIf="mMobile.touched && mMobile.errors?.pattern">Please enter a 10 digit mobile number</span>
           </div>
         </div>
-        <br>
+        <br><br *ngIf="(mName.touched && mName.errors?.required) || (mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)) || (mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)) || (mMobile.touched && (mMobile.errors?.pattern || mMobile.errors?.required))">
         <div class="form-group">
           <label class="col-md-4 control-label">Gender</label>
           <div class="btn-group col-md-8">
@@ -52,10 +52,9 @@
             <label class="btn btn-default" [(ngModel)]="gender" name="gender" btnRadio="F" tabindex="0" role="button">
               <span>Female</span>
             </label>
-          </div>
-          <br *ngIf="mMobile.touched && (mMobile.errors?.required || mMobile.errors?.pattern)">
+          </div>          
         </div>
-        <br><br><br *ngIf="mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern || mAssociateId.errors?.required || mAssociateId.errors?.pattern || mEmail.errors?.required)">
+        <br><br><br *ngIf="(mName.touched && mName.errors?.required) || (mAssociateId.touched && (mAssociateId.errors?.required || mAssociateId.errors?.pattern)) || (mEmail.touched && (mEmail.errors?.required || mEmail.errors?.pattern)) || (mMobile.touched && (mMobile.errors?.pattern || mMobile.errors?.required))">
         <div class="form-group">
           <label for="remark" class="col-md-4 control-label">Remarks</label>
           <div class="col-md-8">
@@ -98,7 +97,6 @@
           </label>
         </div>
       </div>
-
     </div>
     <hr>
     <div>
