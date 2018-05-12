@@ -1,4 +1,4 @@
-<project name="AuthoAudit" basedir="." default="Build" xmlns="http://nant.sf.net/schemas/nant.xsd">
+<project name="SkillsTracker" basedir="." default="Build" xmlns="http://nant.sf.net/schemas/nant.xsd">
 	<property name="build.dir" value="${project::get-base-directory()}" />
 	<property name="msbuild.exe" value="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" />	
 	<property name="svn.exe" value="C:\Program Files\TortoiseSVN\bin\svn.exe" />	
@@ -14,27 +14,13 @@
 		<property name="pkg.dir" value="${path::combine(build.dir,'package')}" />
 		<property name="pkg.skills.tracker.api.dir" value="${path::combine(pkg.dir,'SkillsTracker.API')}" />
 		<property name="pkg.skills.tracker.spa.dir" value="${path::combine(pkg.dir,'SkillsTracker.SPA')}" />
-	</target>
+	</target>	
 
-	<target name="GetSVNRevision">
-		<property name="svn.revision" value="0"/>
-		<exec program="svn"
-            commandline='info "${project::get-base-directory()}" --xml'
-            output="svn.revison.xml"
-            failonerror="false"/>
-		<xmlpeek
-            file="svn.revison.xml"
-            xpath="/info/entry/commit/@revision"
-            property="svn.revision"
-            failonerror="false"/>
-		<echo message="Building revision number: ${svn.revision}"/>
-	</target>
-
-	<target name="GetSource" description="Gets the latest source for a project.">
+	<target name="GetSource" description="Gets the latest source for the project.">
 		<echo message="================================================" />
 		<echo message="Getting Latest Skills Tracker files from GitHub" />
 		<echo message="================================================" />
-		<exec program="${svn.exe}" commandline="update --username SolExBLRBuild --password Welcome123! --no-auth-cache --non-interactive --trust-server-cert ${src.dir}" />
+		<exec program="cmd" commandline="/c git pull" workingdir="${src.dir}" />
 	</target>
 
 	<target name="Compile" desciption="Starts Compiling.">		
@@ -58,8 +44,7 @@
 		<echo message="================================================" />
 		<property name="build.exe.param.ext" value="--prod" />		
 
-		<exec program="cmd" commandline="/c &quot;${src.dir}\SkillsTracker.Build\ng-build.bat&quot;" workingdir="${src.dir}\SkillsTracker.Build">
-		</exec>
+		<exec program="cmd" commandline="/c &quot;${src.dir}\SkillsTracker.Build\ng-build.bat&quot;" workingdir="${src.dir}\SkillsTracker.Build" />
 	</target>
 
 	<target name="Package" desciption="Starts Packaging.">

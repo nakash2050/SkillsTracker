@@ -1,5 +1,5 @@
-<project name="AuthoAudit" basedir="." default="DeployQA" xmlns="http://nant.sf.net/schemas/nant.xsd">
-	<description>AuthoAudit Automated Deployment script.</description>
+<project name="SkillsTracker" basedir="." default="DeployApplication" xmlns="http://nant.sf.net/schemas/nant.xsd">
+	<description>Skills Tracker Automated Deployment script.</description>
 	<!--
     Pre Requisites: It requires files
         1. Package folder
@@ -14,81 +14,34 @@
 	<property name="config.dir" value="${project::get-base-directory()}\config" />
 	<property name="pkg.templates.msg.mgr.dir" value="${path::combine(pkg.dir,'Templates')}" />
 
-	<target name="DeployQA" description="Deploying to QA">
-		<property name="app.config" value="${config.dir}\web.qa.config" />
+	<target name="DeployApplication" description="Deploying to Application">		
 		<echo message="================================================" />
-		<echo message="Deploying AuthoAudit Application" />
+		<echo message="Deploying Skills Tracker API" />
 		<echo message="================================================" />		
 		
-		<property name="app.config" value="${config.dir}\web.qa.config" />
-		<property name="package.dir" value="${build.dir}\package\AuthoAudit.Web" />	
+		<property name="app.config" value="${config.dir}\skills.tracker.api.config" />
+		<property name="package.dir" value="${pkg.dir}\SkillsTracker.API" />	
 		
-		<property name="target.server.name" value="\\10.215.48.80\D$\WebSites\Deutsche" />
-		<call target="DeployApp" />
-		
-		<property name="target.server.name" value="\\10.215.48.81\D$\WebSites\Deutsche" />
-		<call target="DeployApp" />
-		
-		<echo message="================================================" />
-		<echo message="Deploying AuthoDocs Message Processor Scheduler" />
-		<echo message="================================================" />			
-		<property name="app.config" value="${config.dir}\message.processor.qa.config" />
-		<property name="package.dir" value="${build.dir}\package\AuthoDocs.MessageProcessor" />
-		
-		<property name="target.server.name" value="\\10.215.48.80\D$\WebSites\Deutsche\MessageProcessor" />
-		<call target="DeployApp" />
-		
-		<echo message="================================================" />
-		<echo message="Deploying AuthoDocs Image Watcher" />
-		<echo message="================================================" />			
-		<property name="app.config" value="${config.dir}\image.watcher.qa.config" />
-		<property name="package.dir" value="${build.dir}\package\AuthoAudit.ImageWatcher" />
-		
-		<property name="target.server.name" value="\\10.215.48.80\D$\WebSites\Deutsche\ImageWatcher" />
-		<call target="DeployApp" />
-		
-		<echo message="================================================" />
-		<echo message="Deploying HTML Image Viewer" />
-		<echo message="================================================" />
-
-		<property name="package.dir" value="${build.dir}\package\HTML.ImageViewer" />
-		
-		<property name="target.server.name" value="\\10.215.48.80\D$\WebSites\DeutscheImager" />
-		<call target="DeployApp" />
-		
-		<echo message="================================================" />
-		<echo message="Deploying AuthoDocs Image Extracter" />
-		<echo message="================================================" />			
-		<property name="app.config" value="${config.dir}\image.extracter.qa.config" />
-		<property name="package.dir" value="${build.dir}\package\ImageExtracter" />
-		
-		<property name="target.server.name" value="\\10.215.48.80\D$\WebSites\Deutsche\ImageExtracter" />
-		<call target="DeployApp" />
+		<property name="target.server.name" value="G:\Deployed\SkillsTracker.API" />
+		<call target="DeployApp" />					
 
 		<echo message="================================================" />
-		<echo message="Deploying AuthoAudit Services" />
+		<echo message="Deploying Skills Tracker SPA" />
 		<echo message="================================================" />			
-		<property name="app.config" value="${config.dir}\service.qa.config" />
-		<property name="package.dir" value="${build.dir}\package\AuthoAudit.Services" />
+		<property name="package.dir" value="${build.dir}\package\SkillsTracker.SPA" />
 		
-		<property name="target.server.name" value="\\10.215.112.60\d$\WebServices\AuthoAuditServices" />
-		<call target="DeployApp" />		
-
-		<echo message="================================================" />
-		<echo message="Deploying Templates" />
-		<echo message="================================================" />	
-		<call target="DeployTemplatesToQA" />
-		
+		<property name="target.server.name" value="G:\Deployed\SkillsTracker.SPA" />
+		<call target="DeployApp" />						
 	</target>	
 
 	<target name="DeployApp" description="Starting Deployment">
 		<property name="target.dir" value="${target.server.name}" />
 		
 		<echo message="Cleaning up target directory" />
-		<call target="CleanupTargetDir" failonerror="false" />
+		<call target="CleanupTargetDir" failonerror="true" />
 		
 		<echo message="Building Config files" />		
-		<call target="BuildConfig" failonerror="false" />
+		<call target="BuildConfig" failonerror="true" />
 
 		<echo message="Copying Package to target folder: ${target.dir}" />
 		<copy todir="${target.dir}" overwrite="true">
@@ -108,7 +61,7 @@
 		<foreach item="Line" in="${app.config}" property="curLine">
 			<if test="${curLine!=''}">
 				<echo message="${curLine}" />
-				<regex pattern="^(?'key'.*)#@#(?'keyvalue'.*)$" input="${curLine}" failonerror="false" />
+				<regex pattern="^(?'key'.*)#@#(?'keyvalue'.*)$" input="${curLine}" failonerror="true" />
 				<if test="${key=='filename'}">
 					<property name="config.filename" value="${package.dir}\${keyvalue}" />
 					<echo message="ConfigFileName: ${config.filename}" />
@@ -121,21 +74,7 @@
 				</if>
 			</if>
 		</foreach>
-	</target>
-	
-	<target name="DeployTemplatesToQA" description="Deploying Templates to QA">
-		<echo message="=======================================================" />		
-		<echo message="Deploying Templates to QA" />
-		<echo message="=======================================================" />				
-				
-		<property name="target.dir" value="\\10.215.112.62\IntelliMods-Docs\AuthoAudit\Templates_DO_NOT_DELETE" />
-		
-		<copy todir="${target.dir}" overwrite="true">
-			<fileset basedir="${pkg.templates.msg.mgr.dir}">
-				<include name="**/**" />
-			</fileset>
-		</copy>
-	</target>
+	</target>	
 	
 	<target name="CleanupTargetDir" description="Clean up target Directories">
 		<delete>
