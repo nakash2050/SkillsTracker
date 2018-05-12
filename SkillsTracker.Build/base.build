@@ -2,6 +2,7 @@
 	<property name="build.dir" value="${project::get-base-directory()}" />
 	<property name="msbuild.exe" value="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" />	
 	<property name="svn.exe" value="C:\Program Files\TortoiseSVN\bin\svn.exe" />	
+	<property name="nodejs" value="C:\Program Files\nodejs\nodevars.bat" />	
 
 	<target name="Initialize">
 		<property name="Configuration" value="release" />
@@ -38,13 +39,13 @@
 		<property name="build.exe.param.ext" value=";OutDir=${build.out.dir}\SkillsTracker.API\" if="${build.output.flag=='1'}" />		
 		<exec program="${msbuild.exe}" commandline="&quot;${src.dir}\SkillsTracker.sln&quot; ${build.exe.param}${build.exe.param.ext}" />
 
-
 		<echo message="================================================" />
 		<echo message="Building SkillsTracker SPA Project" />
 		<echo message="================================================" />
 		<property name="build.exe.param.ext" value="--prod" />		
 
 		<exec program="cmd" commandline="/c &quot;${src.dir}\SkillsTracker.Build\ng-build.bat&quot;" workingdir="${src.dir}\SkillsTracker.Build" />
+		
 	</target>
 
 	<target name="Package" desciption="Starts Packaging.">
