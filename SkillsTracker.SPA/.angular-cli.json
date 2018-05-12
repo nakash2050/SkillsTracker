@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../SkillsTracker.Build/deployment/SkillsTracker.SPA/dist",
       "assets": [
         "assets",
         "favicon.ico"

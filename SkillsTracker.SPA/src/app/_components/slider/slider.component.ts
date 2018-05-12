@@ -18,7 +18,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class SliderComponent implements ControlValueAccessor {
 
-    private innerValue: any = '';
+    innerValue: any = '';
 
     private onTouchedCallback: () => void = noop;
     private onChangeCallback: (_: any) => void = noop;

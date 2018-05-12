@@ -1,0 +1,95 @@
+<project name="AuthoAudit" basedir="." default="Build" xmlns="http://nant.sf.net/schemas/nant.xsd">
+	<property name="build.dir" value="${project::get-base-directory()}" />
+	<property name="msbuild.exe" value="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe" />	
+	<property name="svn.exe" value="C:\Program Files\TortoiseSVN\bin\svn.exe" />	
+
+	<target name="Initialize">
+		<property name="Configuration" value="release" />
+		<property name="build.output.flag" value="1" />
+		<property name="server.name" value="${environment::get-machine-name()}" />
+		<property name="build.log" value="build.log" />
+		<property name="src.dir" value="${directory::get-parent-directory(build.dir)}" />
+		<property name="sln.dir" value="${path::combine(src.dir,'Solutions')}" />
+		<property name="build.out.dir" value="${path::combine(build.dir,'deployment')}" />
+		<property name="pkg.dir" value="${path::combine(build.dir,'package')}" />
+		<property name="pkg.skills.tracker.api.dir" value="${path::combine(pkg.dir,'SkillsTracker.API')}" />
+		<property name="pkg.skills.tracker.spa.dir" value="${path::combine(pkg.dir,'SkillsTracker.SPA')}" />
+	</target>
+
+	<target name="GetSVNRevision">
+		<property name="svn.revision" value="0"/>
+		<exec program="svn"
+            commandline='info "${project::get-base-directory()}" --xml'
+            output="svn.revison.xml"
+            failonerror="false"/>
+		<xmlpeek
+            file="svn.revison.xml"
+            xpath="/info/entry/commit/@revision"
+            property="svn.revision"
+            failonerror="false"/>
+		<echo message="Building revision number: ${svn.revision}"/>
+	</target>
+
+	<target name="GetSource" description="Gets the latest source for a project.">
+		<echo message="================================================" />
+		<echo message="Getting Latest Skills Tracker files from GitHub" />
+		<echo message="================================================" />
+		<exec program="${svn.exe}" commandline="update --username SolExBLRBuild --password Welcome123! --no-auth-cache --non-interactive --trust-server-cert ${src.dir}" />
+	</target>
+
+	<target name="Compile" desciption="Starts Compiling.">		
+		<echo message="================================================" />
+		<echo message="Clean Build Output Path" />
+		<echo message="================================================" />
+		<delete dir="${build.out.dir}" />
+
+		<property name="build.exe.param" value="/v:q /nologo /t:clean,build /fl /flp:LogFile=${build.log} /p:Configuration=${Configuration};PlatformTarget=AnyCPU"/>
+		<property name="build.exe.param.ext" value=";OutDir=bin\Debug" if="${build.output.flag=='1'}" />
+
+		<echo message="================================================" />
+		<echo message="Building SkillsTracker API Project" />
+		<echo message="================================================" />
+		<property name="build.exe.param.ext" value=";OutDir=${build.out.dir}\SkillsTracker.API\" if="${build.output.flag=='1'}" />		
+		<exec program="${msbuild.exe}" commandline="&quot;${src.dir}\SkillsTracker.sln&quot; ${build.exe.param}${build.exe.param.ext}" />
+
+
+		<echo message="================================================" />
+		<echo message="Building SkillsTracker SPA Project" />
+		<echo message="================================================" />
+		<property name="build.exe.param.ext" value="--prod" />		
+
+		<exec program="cmd" commandline="/c &quot;${src.dir}\SkillsTracker.Build\ng-build.bat&quot;" workingdir="${src.dir}\SkillsTracker.Build">
+		</exec>
+	</target>
+
+	<target name="Package" desciption="Starts Packaging.">
+		<echo message="================================================" />
+		<echo message="Creating Package." />
+		<echo message="================================================" />
+		<delete dir="${pkg.dir}" />
+		<mkdir dir="${pkg.dir}" />
+
+		<property name="pkg.pub.skills.tracker.api.dir" value="${path::combine(build.out.dir,'SkillsTracker.API\_PublishedWebsites\SkillsTracker.API')}"/>
+		<echo message="================================================" />
+		<echo message="Package Skills Tracker API: ${pkg.skills.tracker.api.dir}" />
+		<echo message="================================================" />
+		<move includeemptydirs="true" todir="${pkg.skills.tracker.api.dir}">
+			<fileset basedir="${pkg.pub.skills.tracker.api.dir}">
+				<include name="**/*" />
+			</fileset>
+		</move>	
+
+		<property name="pkg.pub.skills.tracker.spa.dir" value="${path::combine(build.out.dir,'SkillsTracker.SPA\dist')}"/>
+		<echo message="================================================" />
+		<echo message="Package Skills Tracker SPA: ${pkg.skills.tracker.spa.dir}" />
+		<echo message="================================================" />
+		<move includeemptydirs="true" todir="${pkg.skills.tracker.spa.dir}">
+			<fileset basedir="${pkg.pub.skills.tracker.spa.dir}">
+				<include name="**/*" />
+			</fileset>
+		</move>			
+	</target>	
+
+	<target name="Build" depends="Initialize,Compile,Package" />
+	<target name="BuildAndPackage" depends="Initialize,GetSource,Compile,Package" />
+</project>
