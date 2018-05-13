@@ -1,4 +1,4 @@
-************************************************************SkillsTracker Code Coverage**********************************************************************
+********************SkillsTracker Code Coverage********************
 1. Unit tests are written in both MSTest and NUnit which is under "SkillsTracker.Tests" and "SkillsTracker.NUnitTests" folders respectively.
 2. I have chosen MSTest as the test runner as I did not want to install NUnit runner which basically does the same job as MSTest, in order to avoid redundancy.
 3. To run CodeCoverage, "OpenCover" has been used.
