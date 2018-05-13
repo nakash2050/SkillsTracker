@@ -22,7 +22,7 @@
 		<property name="app.config" value="${config.dir}\skills.tracker.api.config" />
 		<property name="package.dir" value="${pkg.dir}\SkillsTracker.API" />	
 		
-		<property name="target.server.name" value="G:\Deployed\SkillsTracker\API" />
+		<property name="target.server.name" value="C:\Nakash\SkillsTracker\Deployed\SkillsTracker\API" />
 		<call target="DeployApp" />					
 
 		<echo message="================================================" />
@@ -30,7 +30,7 @@
 		<echo message="================================================" />			
 		<property name="package.dir" value="${build.dir}\package\SkillsTracker.SPA" />
 		
-		<property name="target.server.name" value="G:\Deployed\SkillsTracker\SPA" />
+		<property name="target.server.name" value="C:\Nakash\SkillsTracker\Deployed\SkillsTracker\SPA" />
 		<call target="DeployApp" />						
 	</target>	
 
