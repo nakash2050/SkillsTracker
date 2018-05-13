@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.NUnitTests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.NUnitTests", "SkillsTracker.NUnitTests\SkillsTracker.NUnitTests.csproj", "{5A475325-68D2-4304-8D22-C606B0F80BE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.Tests", "SkillsTracker.Tests", "{F63B0C2A-BBE0-44AB-8428-43CE34655E04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.Tests", "SkillsTracker.Tests\SkillsTracker.Tests.csproj", "{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,14 @@ Global
 		{5A475325-68D2-4304-8D22-C606B0F80BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A475325-68D2-4304-8D22-C606B0F80BE8}.Release|x86.ActiveCfg = Release|x86
 		{5A475325-68D2-4304-8D22-C606B0F80BE8}.Release|x86.Build.0 = Release|x86
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Debug|x86.Build.0 = Debug|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +106,6 @@ Global
 		{9553B55F-280D-4893-AFC7-326F7AD9C3F9} = {AB2D3B43-C280-47A7-9BCB-4C80AEAD8EE7}
 		{F220E73A-C168-4679-8BD0-9F17EA257003} = {05CC98D6-5890-45FE-A8B7-26DA3F547651}
 		{5A475325-68D2-4304-8D22-C606B0F80BE8} = {3E7762D5-A342-4543-A3DE-7468C9DDD052}
+		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA} = {F63B0C2A-BBE0-44AB-8428-43CE34655E04}
 	EndGlobalSection
 EndGlobal
