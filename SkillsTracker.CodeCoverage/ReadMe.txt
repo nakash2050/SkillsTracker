@@ -5,8 +5,7 @@
 4. To generate the CodeCoverage results, "ReportGenerator" has been used. (https://github.com/danielpalme/ReportGenerator/releases)
 5. To analyze code coverage, execute the follwing steps:
 		a. Build "SkillsTracker.Tests" project.
-		b. Open command prompt and "CD" to "SkillsTracker.CodeCoverage" folder
-		c. Trigger "CodeCoverageRunner.bat" file. This will create a "CodeCoverageReport" folder (which has been checked-in)
+		b. Double click on the "CodeCoverageRunner.bat" file.
 6. Open "CodeCoverageReport" folder and browse "index.htm" file in a browser.
 7. CodeCoverage results are displayed.
 

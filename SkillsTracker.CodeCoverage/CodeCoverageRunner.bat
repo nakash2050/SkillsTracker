@@ -1,4 +1,4 @@
-set PATH=%PATH%;C:\Users\Nakash\AppData\Local\Apps\OpenCover;G:\Softwares\ReportGenerator;
+set PATH=%PATH%;..\packages\OpenCover.4.6.519\tools;..\packages\ReportGenerator.3.1.2\tools;
 set msTestPath=C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mstest.exe
 set unitTestPath=..\SkillsTracker.Tests\bin\Debug\SkillsTracker.Tests.dll
 set unitTestResultsFolder=UnitTestResults
