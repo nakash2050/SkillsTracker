@@ -1,4 +1,4 @@
-﻿using AssociatesTracker.BAL;
+using AssociatesTracker.BAL;
 using Newtonsoft.Json;
 using SkillsTracker.Entities.DTO;
 using System;
@@ -64,6 +64,16 @@ namespace SkillsTracker.API.Controllers
             }
 
             return Ok(skills);
+        }
+
+        public IHttpActionResult PostAssociateWithSkills(AssociateWithSkillsDTO associateWithSkillsDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var result = _associateBAL.AddAssociateWithSkills(associateWithSkillsDTO);
+
+            return Ok(result);
         }
 
         [Route("withSkills")]
@@ -175,6 +185,15 @@ namespace SkillsTracker.API.Controllers
                 return BadRequest(ModelState);
 
             var result = _associateBAL.UpdateAssociate(id, associateDTO);
+            return Ok(result);
+        }
+
+        public IHttpActionResult UpdateAssociateWithSkills(AssociateWithSkillsDTO associateDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = _associateBAL.UpdateAssociateWithSkills(associateDTO);
             return Ok(result);
         }
 
