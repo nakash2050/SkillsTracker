@@ -10,7 +10,7 @@ rd /s /q %codeCoverageReportFolder%
 
 mkdir %unitTestResultsFolder%
 
-OpenCover.Console.exe -register:user -target:"%msTestPath%" -targetargs:" /testcontainer:\"..\SkillsTracker.Tests\bin\Debug\SkillsTracker.Tests.dll\" /resultsfile:%unitTestResults%" -mergebyhash -output:%unitTestResultsFolder%\SkillsTrackerCoverageReport.xml
+OpenCover.Console.exe -register:user -target:"%msTestPath%" -targetargs:" /testcontainer:\"..\SkillsTracker.Tests\bin\Debug\SkillsTracker.Tests.dll\" /resultsfile:%unitTestResults%" -mergebyhash -filter:"+[*]* -[SkillsTracker.DAL]SkillsTracker.DAL.Migrations.* -[SkillsTracker.API]SkillsTracker.API.Utilities.* -[SkillsTracker.API]*WebApiConfig -[SkillsTracker.API]*GlobalExceptionHandler -[SkillsTracker.API]*WebApiApplication" -output:%unitTestResultsFolder%\SkillsTrackerCoverageReport.xml
 
 ReportGenerator.exe -reports:"%unitTestResultsFolder%\SkillsTrackerCoverageReport.xml" -targetdir:"%codeCoverageReportFolder%"
 
