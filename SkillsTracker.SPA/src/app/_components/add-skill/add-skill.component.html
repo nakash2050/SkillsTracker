@@ -3,18 +3,18 @@
   <br>
   <form class="form-horizontal" #form="ngForm" (ngSubmit)="form">
     <div class="col-md-7 col-md-offset-2">
-      <label for="skillName" class="col-md-2 control-label">Search</label>
+      <label for="skillSearch" class="col-md-3 control-label">Search</label>
       <div class="form-group">
         <div>
-          <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="searchSkill" placeholder="Search Skill"
-            style="width:70%" autocomplete="off">
+          <input type="text" class="form-control" id="skillSearch" name="skillSearch" #skill="ngModel" [(ngModel)]="searchSkill" placeholder="Search Skill"
+            style="width:63%" autocomplete="off">
         </div>
       </div>
-      <label for="skillName" class="col-md-2 control-label">Skill Name</label>
+      <label for="skillName" class="col-md-3 control-label">Skill Name</label>
       <div class="form-inline">
         <div>
           <input type="text" class="form-control" id="skillName" name="skillName" #skill="ngModel" [(ngModel)]="skillName" placeholder="Enter skill name"
-            style="width:60%" required autocomplete="off">
+            style="width:40%" required autocomplete="off">
           <button type="submit" class="btn btn-success" (click)="submit(form)" [disabled]="skill.invalid">Submit</button>
           <a routerLink="/newempskill" class="btn btn-default">Cancel</a>
           <span class="help-block col-md-offset-2" *ngIf="skill.touched && skill.errors?.required">Please enter a Category</span>
