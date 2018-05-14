@@ -29,28 +29,42 @@ namespace AssociatesTracker.Tests
         [TestMethod]
         public void AddNewAssociate_ValidAssociate_ReturnsAllAssociates()
         {
-            var associate = new AssociateDTO
+            bool isValidAssociate = false;
+
+            while (!isValidAssociate)
             {
-                AssociateId = new Random().Next(),
-                Name = String.Format("Test Associate {0}", new Random().Next()),
-                Email = String.Format("associate{0}@skillstracker.com", new Random().Next()),
-                Mobile = "9834509344",
-                StatusGreen = true,
-                StatusBlue = false,
-                StatusRed = false,
-                Level1 = true,
-                Level2 = false,
-                Level3 = false,
-                Strength = "Strength",
-                Weakness = "Weakness",
-                Remark = "Remark"
-            };
+                var associateId = new Random().Next();
 
-            IHttpActionResult actionResult = _associateController.Post(associate);
-            var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+                var associateInDb = _associateController.Get(associateId);
+                var associateResult = associateInDb as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+                if (associateResult == null)
+                {
+                    isValidAssociate = true;
 
-            Assert.IsNotNull(contentResult);
-            Assert.IsNotNull(contentResult.Content);
+                    var associate = new AssociateDTO
+                    {
+                        AssociateId = associateId,
+                        Name = String.Format("Test Associate {0}", new Random().Next()),
+                        Email = String.Format("associate{0}@skillstracker.com", new Random().Next()),
+                        Mobile = "9834509344",
+                        StatusGreen = true,
+                        StatusBlue = false,
+                        StatusRed = false,
+                        Level1 = true,
+                        Level2 = false,
+                        Level3 = false,
+                        Strength = "Strength",
+                        Weakness = "Weakness",
+                        Remark = "Remark"
+                    };
+
+                    IHttpActionResult actionResult = _associateController.Post(associate);
+                    var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+
+                    Assert.IsNotNull(contentResult);
+                    Assert.IsNotNull(contentResult.Content);
+                }
+            }
         }
 
         [TestMethod]

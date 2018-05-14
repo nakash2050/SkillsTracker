@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.Tests", "Skil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.Tests", "SkillsTracker.Tests\SkillsTracker.Tests.csproj", "{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkillsTracker.PerformanceTest", "SkillsTracker.PerformanceTest", "{A600BC0F-E7EA-4BB3-8A86-48D66A4D8269}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsTracker.NBench", "SkillsTracker.NBench\SkillsTracker.NBench.csproj", "{E04E665A-1A20-410F-901A-A8D7C1B66B69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +99,14 @@ Global
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|x86.ActiveCfg = Release|Any CPU
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA}.Release|x86.Build.0 = Release|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Debug|x86.Build.0 = Debug|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Release|x86.ActiveCfg = Release|Any CPU
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,5 +119,6 @@ Global
 		{F220E73A-C168-4679-8BD0-9F17EA257003} = {05CC98D6-5890-45FE-A8B7-26DA3F547651}
 		{5A475325-68D2-4304-8D22-C606B0F80BE8} = {3E7762D5-A342-4543-A3DE-7468C9DDD052}
 		{32A70141-63BC-4E7B-89C8-26E7DCE7A2BA} = {F63B0C2A-BBE0-44AB-8428-43CE34655E04}
+		{E04E665A-1A20-410F-901A-A8D7C1B66B69} = {A600BC0F-E7EA-4BB3-8A86-48D66A4D8269}
 	EndGlobalSection
 EndGlobal
