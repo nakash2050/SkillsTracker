@@ -1,4 +1,4 @@
-﻿using System.Web.Http;
+using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoMapper;
 using System.Web.Http.Results;
@@ -68,6 +68,62 @@ namespace AssociatesTracker.Tests
         }
 
         [TestMethod]
+        public void AddNewAssociateWithSkills_ValidAssociate_ReturnsAllAssociates()
+        {
+            bool isValidAssociate = false;
+            List<AssociateSkillsDTO> associateSkills = null;
+
+            while (!isValidAssociate)
+            {
+                var associateId = new Random().Next();
+
+                var associateInDb = _associateController.Get(associateId);
+                var associateResult = associateInDb as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+                if (associateResult == null)
+                {
+                    isValidAssociate = true;
+
+                    IHttpActionResult skillsActionResult = new AssociateSkillsController().Get();
+                    var skillsContentResult = skillsActionResult as OkNegotiatedContentResult<IEnumerable<AssociateSkillsDTO>>;
+
+                    if (skillsContentResult != null)
+                    {
+                        associateSkills = new List<AssociateSkillsDTO>();
+                        associateSkills.Add(skillsContentResult.Content.FirstOrDefault());
+                    }
+
+                    var associate = new AssociateWithSkillsDTO()
+                    {
+                        Associate = new AssociateDTO()
+                        {
+
+                            AssociateId = associateId,
+                            Name = String.Format("Test Associate {0}", new Random().Next()),
+                            Email = String.Format("associate{0}@skillstracker.com", new Random().Next()),
+                            Mobile = "9834509344",
+                            StatusGreen = true,
+                            StatusBlue = false,
+                            StatusRed = false,
+                            Level1 = true,
+                            Level2 = false,
+                            Level3 = false,
+                            Strength = "Strength",
+                            Weakness = "Weakness",
+                            Remark = "Remark"
+                        },
+                        Skills = associateSkills != null ? associateSkills.ToArray() : null
+                    };
+
+                    IHttpActionResult actionResult = _associateController.PostAssociateWithSkills(associate);
+                    var contentResult = actionResult as OkNegotiatedContentResult<bool>;
+
+                    Assert.IsNotNull(contentResult);
+                    Assert.IsTrue(contentResult.Content);
+                }
+            }
+        }
+
+        [TestMethod]
         public void GetAssociates_All_ReturnsAllCategories()
         {
             IHttpActionResult actionResult = _associateController.Get();
@@ -94,6 +150,25 @@ namespace AssociatesTracker.Tests
             Assert.IsNotNull(getContentResult);
             Assert.IsNotNull(getContentResult.Content);
             Assert.AreEqual(associate.AssociateId, getContentResult.Content.AssociateId);
+        }
+
+        [TestMethod]
+        public void GetAssociateWithSkills_PassAssociateId_ReturnsValidAssociate()
+        {
+            IHttpActionResult actionResult = _associateController.Get();
+            var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+
+            Assert.IsNotNull(contentResult);
+            Assert.IsNotNull(contentResult.Content);
+
+            var associate = contentResult.Content.FirstOrDefault();
+
+            IHttpActionResult getActionResult = _associateController.GetAssociateWithSkills(associate.AssociateId);
+            var getContentResult = getActionResult as OkNegotiatedContentResult<AssociateWithSkillsDTO>;
+
+            Assert.IsNotNull(getContentResult);
+            Assert.IsNotNull(getContentResult.Content);
+            Assert.AreEqual(associate.AssociateId, getContentResult.Content.Associate.AssociateId);
         }
 
         [TestMethod]
@@ -138,6 +213,54 @@ namespace AssociatesTracker.Tests
 
                 Assert.IsNotNull(getContentResult);
                 Assert.AreEqual(associate.Name, getContentResult.Content.Name);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateAssociateWithSkills_ValidAssociate_ReturnsAllAssociates()
+        {
+            IHttpActionResult actionResult = _associateController.Get();
+            var contentResult = actionResult as OkNegotiatedContentResult<IEnumerable<AssociateDTO>>;
+
+            if (contentResult != null)
+            {
+                var associate = contentResult.Content.FirstOrDefault();
+
+                IHttpActionResult aWithSkillsResult = _associateController.GetAssociateWithSkills(associate.AssociateId);
+                var aWithSkillsContentResult = aWithSkillsResult as OkNegotiatedContentResult<AssociateWithSkillsDTO>;
+
+                var associateWithSkills = aWithSkillsContentResult.Content;
+
+                if (associateWithSkills != null)
+                {
+                    associateWithSkills.Associate.Name = String.Format("Associate Updated {0}", new Random().Next());
+
+                    if(associateWithSkills.Skills != null)
+                    {
+                        IHttpActionResult skillsActionResult = new AssociateSkillsController().Get();
+                        var skillsContentResult = skillsActionResult as OkNegotiatedContentResult<IEnumerable<AssociateSkillsDTO>>;
+
+                        if (skillsContentResult != null)
+                        {
+                            var lstAssociateSkills = new List<AssociateSkillsDTO>();
+                            lstAssociateSkills.Add(skillsContentResult.Content.FirstOrDefault());
+
+                            associateWithSkills.Skills = lstAssociateSkills.ToArray();
+                        }  
+                    }
+
+                    IHttpActionResult updateActionResult = _associateController.UpdateAssociateWithSkills(associateWithSkills);
+                    var updateContentResult = updateActionResult as OkNegotiatedContentResult<bool>;
+
+                    Assert.IsNotNull(updateActionResult);
+                    Assert.IsTrue(updateContentResult.Content);
+
+                    IHttpActionResult getActionResult = _associateController.Get(associate.AssociateId);
+                    var getContentResult = getActionResult as OkNegotiatedContentResult<AssociateDTO>;
+
+                    Assert.IsNotNull(getContentResult);
+                    Assert.AreEqual(associateWithSkills.Associate.Name, getContentResult.Content.Name);
+                }
             }
         }
 
