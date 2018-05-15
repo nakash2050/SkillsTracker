@@ -96,7 +96,6 @@ namespace AssociatesTracker.Tests
                     {
                         Associate = new AssociateDTO()
                         {
-
                             AssociateId = associateId,
                             Name = String.Format("Test Associate {0}", new Random().Next()),
                             Email = String.Format("associate{0}@skillstracker.com", new Random().Next()),
@@ -317,6 +316,7 @@ namespace AssociatesTracker.Tests
             Assert.IsNotNull(contentResult.Content.Technology);
         }
 
+        [TestMethod]
         public void GetAssociateSkills_PassValidAssociateId_ReturnsValidAssociateWithSkills()
         {
             IHttpActionResult actionResult = _associateController.Get();

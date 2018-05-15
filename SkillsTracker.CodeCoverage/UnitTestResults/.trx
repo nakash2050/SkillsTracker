@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="28185093-3e85-4c49-b1f6-ea79b06dee9d" name="Nakash@DELL 2018-05-15 10:58:19" runUser="DELL\Nakash" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="acc67de8-fddc-4575-8304-ad4949e1f946">
+    <Deployment userDeploymentRoot="F:\VisualStudioProjects\FSD\SkillsTracker\SkillsTracker.CodeCoverage\UnitTestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Nakash_DELL 2018-05-15 10_58_19" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2018-05-15T10:58:19.2964735+05:30" queuing="2018-05-15T10:58:21.8150807+05:30" start="2018-05-15T10:58:21.9869456+05:30" finish="2018-05-15T10:58:27.7098137+05:30" />
+  <ResultSummary outcome="Failed">
+    <Counters total="24" executed="24" passed="23" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetAssociateWithSkills_PassAssociateId_ReturnsValidAssociate" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="e861ac8c-1f7c-710f-cbba-0e0fab73db61">
+      <Execution id="e3298078-5bb4-4c76-aa06-4710368a3a9b" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociateWithSkills_PassAssociateId_ReturnsValidAssociate" />
+    </UnitTest>
+    <UnitTest name="GetAssociates_All_ReturnsAllCategories" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="05c622b5-dcab-f010-2a6d-ae4b3c6838f5">
+      <Execution id="89b95ef3-e57f-4b3a-b12e-3e8e53a84ff6" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociates_All_ReturnsAllCategories" />
+    </UnitTest>
+    <UnitTest name="ValidateAssociateModel_InvalidAssociateName_ReturnsFalse" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="1d1ca4ca-f955-2a8f-990b-765bd4ee9c49">
+      <Execution id="bca8cb04-21d5-4687-b52a-e994cf674bd9" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidateAssociateModel_InvalidAssociateName_ReturnsFalse" />
+    </UnitTest>
+    <UnitTest name="GetAssociateSkills_All_ReturnsAllAssociateSkills" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="9222e66d-3286-4a2f-e7a9-952355050de7">
+      <Execution id="c0f978d0-89ed-4b07-ab5b-8fc37ee43c33" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.AssociateSkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociateSkills_All_ReturnsAllAssociateSkills" />
+    </UnitTest>
+    <UnitTest name="GetSkills_All_ReturnsAllSkills" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="04cec116-c529-279e-0c9a-7374418e0659">
+      <Execution id="465c21bd-a218-43be-b861-0dac3dada53c" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetSkills_All_ReturnsAllSkills" />
+    </UnitTest>
+    <UnitTest name="DeleteSkill_ValidSkill_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="391f2d5d-16b2-5351-6262-1eb4ea57fb42">
+      <Execution id="5fcd0f44-301c-4dcd-892d-bdd94ec077a0" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteSkill_ValidSkill_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="GetSkill_PassSkillId_ReturnsValidSkill" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="ab9f114d-98d2-4549-b338-2e94622363b1">
+      <Execution id="b4b747ea-574d-492d-ac99-453af473bef0" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetSkill_PassSkillId_ReturnsValidSkill" />
+    </UnitTest>
+    <UnitTest name="GetAssociate_PassAssociateId_ReturnsValidAssociate" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="99ef2761-4de7-1ef4-3141-e389eb6f2aea">
+      <Execution id="da70c53b-cf3b-43a4-9094-ae07e3dcd7f6" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociate_PassAssociateId_ReturnsValidAssociate" />
+    </UnitTest>
+    <UnitTest name="DeleteAssociateSkill_ValidAssociateSkillId_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="c04bc30d-5c43-494e-5395-c42bc6ddc841">
+      <Execution id="feaa2e37-1059-4951-8b32-1504057b1c64" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.AssociateSkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteAssociateSkill_ValidAssociateSkillId_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="UpdateAssociateSkill_ValidAssociateSkill_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="a28df488-4a7e-e4ab-6475-0ccb532f8a6b">
+      <Execution id="dbd72ec1-ab6a-4106-86e1-035260622849" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.AssociateSkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateAssociateSkill_ValidAssociateSkill_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="GetAssociateSkill_PassAssociateSkillId_ReturnsValidAssociateSkill" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="ce1488fa-d7fb-2b88-72ae-49b9b88f82ca">
+      <Execution id="5f9835cf-35ef-4542-8b74-33b7dc43f1f5" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.AssociateSkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociateSkill_PassAssociateSkillId_ReturnsValidAssociateSkill" />
+    </UnitTest>
+    <UnitTest name="AddNewSkill_ValidSkill_ReturnsAllSkills" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="77fb1dd2-5f94-e541-8351-5eb6f78c1589">
+      <Execution id="9d967b52-2190-4c07-94e6-6138e425d9e9" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddNewSkill_ValidSkill_ReturnsAllSkills" />
+    </UnitTest>
+    <UnitTest name="AddNewAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="efe6175c-82f0-dbdb-86bd-d53aa7b21705">
+      <Execution id="48f018e3-d396-4134-94ea-3401ab84b1df" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddNewAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" />
+    </UnitTest>
+    <UnitTest name="DeleteAssociate_ValidAssociate_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="a9d443fa-26f1-e2fd-8340-410192cc7408">
+      <Execution id="e1582096-bd04-46c4-bfb8-74261b58db82" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteAssociate_ValidAssociate_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="ValidateSkillModel_ValidSkill_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="af56d4fa-750c-9305-1ec2-dc3c995e6453">
+      <Execution id="0de1ccbd-b949-4550-ac9d-a51efd049cfa" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidateSkillModel_ValidSkill_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="ValidateSkillModel_InvalidSkillName_ReturnsFalse" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="46bfeaa1-2098-8033-2d5e-9ce64e457c5e">
+      <Execution id="238ff4b4-bfaf-4f5f-8aa6-f3f0963c2b54" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidateSkillModel_InvalidSkillName_ReturnsFalse" />
+    </UnitTest>
+    <UnitTest name="ValidateAssociateModel_ValidAssociate_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="e895474f-d779-1ba1-bab7-2128332348ec">
+      <Execution id="d7744bc2-89e6-4896-88ac-818b364ae304" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ValidateAssociateModel_ValidAssociate_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="UpdateSkill_ValidSkill_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="4b867f53-baaf-7bbe-29fb-5e396103527c">
+      <Execution id="0f56f6aa-6ffb-4edb-a35a-c6b2a0bebb9f" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.SkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateSkill_ValidSkill_ReturnsTrue" />
+    </UnitTest>
+    <UnitTest name="GetAssociateSkills_PassValidAssociateId_ReturnsValidAssociateWithSkills" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="985f279a-c9c2-58c3-ac45-9d937b2de61b">
+      <Execution id="07802bac-6b16-4b22-b660-4cd75131412c" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAssociateSkills_PassValidAssociateId_ReturnsValidAssociateWithSkills" />
+    </UnitTest>
+    <UnitTest name="AddNewAssociateSkill_ValidAssociateSkill_ReturnsAllAssociateSkills" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="2ce7b9d7-b0e9-b17a-ea2d-a97cbd24be46">
+      <Execution id="5ab5e617-ef18-4096-ab4a-25fcc24337d6" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SkillsTracker.Tests.AssociateSkillsTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddNewAssociateSkill_ValidAssociateSkill_ReturnsAllAssociateSkills" />
+    </UnitTest>
+    <UnitTest name="AddNewAssociate_ValidAssociate_ReturnsAllAssociates" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="8032cb76-0746-65f2-f6bf-e0300af78da8">
+      <Execution id="86872496-c99a-4c43-8ae6-52563b4d8501" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddNewAssociate_ValidAssociate_ReturnsAllAssociates" />
+    </UnitTest>
+    <UnitTest name="GetDashboardData_ReturnsDashboardData" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="acd0ae24-533f-7720-1dd6-d650db4774a3">
+      <Execution id="ac05999d-1abe-4f32-a7a7-e4da84919b71" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDashboardData_ReturnsDashboardData" />
+    </UnitTest>
+    <UnitTest name="UpdateAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="2ce0f3ad-2670-c327-e69a-3f210ced645b">
+      <Execution id="11394a2a-6584-4fa5-a277-20c7388590ac" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" />
+    </UnitTest>
+    <UnitTest name="UpdateAssociate_ValidAssociate_ReturnsTrue" storage="..\skillstracker.tests\bin\debug\skillstracker.tests.dll" id="ab6d50f5-9c03-ff71-2e65-bd44dea972cc">
+      <Execution id="c162c4e4-7cb7-4c68-bb07-19bf74bf2239" />
+      <TestMethod codeBase="F:/VisualStudioProjects/FSD/SkillsTracker/SkillsTracker.Tests/bin/Debug/SkillsTracker.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AssociatesTracker.Tests.AssociateTests, SkillsTracker.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateAssociate_ValidAssociate_ReturnsTrue" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8032cb76-0746-65f2-f6bf-e0300af78da8" executionId="86872496-c99a-4c43-8ae6-52563b4d8501" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="efe6175c-82f0-dbdb-86bd-d53aa7b21705" executionId="48f018e3-d396-4134-94ea-3401ab84b1df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9d443fa-26f1-e2fd-8340-410192cc7408" executionId="e1582096-bd04-46c4-bfb8-74261b58db82" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="99ef2761-4de7-1ef4-3141-e389eb6f2aea" executionId="da70c53b-cf3b-43a4-9094-ae07e3dcd7f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="05c622b5-dcab-f010-2a6d-ae4b3c6838f5" executionId="89b95ef3-e57f-4b3a-b12e-3e8e53a84ff6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="985f279a-c9c2-58c3-ac45-9d937b2de61b" executionId="07802bac-6b16-4b22-b660-4cd75131412c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e861ac8c-1f7c-710f-cbba-0e0fab73db61" executionId="e3298078-5bb4-4c76-aa06-4710368a3a9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="acd0ae24-533f-7720-1dd6-d650db4774a3" executionId="ac05999d-1abe-4f32-a7a7-e4da84919b71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ab6d50f5-9c03-ff71-2e65-bd44dea972cc" executionId="c162c4e4-7cb7-4c68-bb07-19bf74bf2239" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ce0f3ad-2670-c327-e69a-3f210ced645b" executionId="11394a2a-6584-4fa5-a277-20c7388590ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d1ca4ca-f955-2a8f-990b-765bd4ee9c49" executionId="bca8cb04-21d5-4687-b52a-e994cf674bd9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e895474f-d779-1ba1-bab7-2128332348ec" executionId="d7744bc2-89e6-4896-88ac-818b364ae304" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ce7b9d7-b0e9-b17a-ea2d-a97cbd24be46" executionId="5ab5e617-ef18-4096-ab4a-25fcc24337d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c04bc30d-5c43-494e-5395-c42bc6ddc841" executionId="feaa2e37-1059-4951-8b32-1504057b1c64" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ce1488fa-d7fb-2b88-72ae-49b9b88f82ca" executionId="5f9835cf-35ef-4542-8b74-33b7dc43f1f5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9222e66d-3286-4a2f-e7a9-952355050de7" executionId="c0f978d0-89ed-4b07-ab5b-8fc37ee43c33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a28df488-4a7e-e4ab-6475-0ccb532f8a6b" executionId="dbd72ec1-ab6a-4106-86e1-035260622849" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77fb1dd2-5f94-e541-8351-5eb6f78c1589" executionId="9d967b52-2190-4c07-94e6-6138e425d9e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="391f2d5d-16b2-5351-6262-1eb4ea57fb42" executionId="5fcd0f44-301c-4dcd-892d-bdd94ec077a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ab9f114d-98d2-4549-b338-2e94622363b1" executionId="b4b747ea-574d-492d-ac99-453af473bef0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="04cec116-c529-279e-0c9a-7374418e0659" executionId="465c21bd-a218-43be-b861-0dac3dada53c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b867f53-baaf-7bbe-29fb-5e396103527c" executionId="0f56f6aa-6ffb-4edb-a35a-c6b2a0bebb9f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="46bfeaa1-2098-8033-2d5e-9ce64e457c5e" executionId="238ff4b4-bfaf-4f5f-8aa6-f3f0963c2b54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af56d4fa-750c-9305-1ec2-dc3c995e6453" executionId="0de1ccbd-b949-4550-ac9d-a51efd049cfa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="86872496-c99a-4c43-8ae6-52563b4d8501" testId="8032cb76-0746-65f2-f6bf-e0300af78da8" testName="AddNewAssociate_ValidAssociate_ReturnsAllAssociates" computerName="DELL" duration="00:00:02.7506203" startTime="2018-05-15T10:58:22.0494526+05:30" endTime="2018-05-15T10:58:25.4426680+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="86872496-c99a-4c43-8ae6-52563b4d8501">
+    </UnitTestResult>
+    <UnitTestResult executionId="48f018e3-d396-4134-94ea-3401ab84b1df" testId="efe6175c-82f0-dbdb-86bd-d53aa7b21705" testName="AddNewAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" computerName="DELL" duration="00:00:00.0722156" startTime="2018-05-15T10:58:25.4426680+05:30" endTime="2018-05-15T10:58:25.5208063+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="48f018e3-d396-4134-94ea-3401ab84b1df">
+    </UnitTestResult>
+    <UnitTestResult executionId="e1582096-bd04-46c4-bfb8-74261b58db82" testId="a9d443fa-26f1-e2fd-8340-410192cc7408" testName="DeleteAssociate_ValidAssociate_ReturnsTrue" computerName="DELL" duration="00:00:00.0290647" startTime="2018-05-15T10:58:25.5208063+05:30" endTime="2018-05-15T10:58:25.5520606+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1582096-bd04-46c4-bfb8-74261b58db82">
+    </UnitTestResult>
+    <UnitTestResult executionId="da70c53b-cf3b-43a4-9094-ae07e3dcd7f6" testId="99ef2761-4de7-1ef4-3141-e389eb6f2aea" testName="GetAssociate_PassAssociateId_ReturnsValidAssociate" computerName="DELL" duration="00:00:00.0058329" startTime="2018-05-15T10:58:25.5520606+05:30" endTime="2018-05-15T10:58:25.5520606+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da70c53b-cf3b-43a4-9094-ae07e3dcd7f6">
+    </UnitTestResult>
+    <UnitTestResult executionId="89b95ef3-e57f-4b3a-b12e-3e8e53a84ff6" testId="05c622b5-dcab-f010-2a6d-ae4b3c6838f5" testName="GetAssociates_All_ReturnsAllCategories" computerName="DELL" duration="00:00:00.0034611" startTime="2018-05-15T10:58:25.5520606+05:30" endTime="2018-05-15T10:58:25.5676499+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="89b95ef3-e57f-4b3a-b12e-3e8e53a84ff6">
+    </UnitTestResult>
+    <UnitTestResult executionId="07802bac-6b16-4b22-b660-4cd75131412c" testId="985f279a-c9c2-58c3-ac45-9d937b2de61b" testName="GetAssociateSkills_PassValidAssociateId_ReturnsValidAssociateWithSkills" computerName="DELL" duration="00:00:00.0238699" startTime="2018-05-15T10:58:25.5676499+05:30" endTime="2018-05-15T10:58:25.5989403+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="07802bac-6b16-4b22-b660-4cd75131412c">
+    </UnitTestResult>
+    <UnitTestResult executionId="e3298078-5bb4-4c76-aa06-4710368a3a9b" testId="e861ac8c-1f7c-710f-cbba-0e0fab73db61" testName="GetAssociateWithSkills_PassAssociateId_ReturnsValidAssociate" computerName="DELL" duration="00:00:00.0061253" startTime="2018-05-15T10:58:25.5989403+05:30" endTime="2018-05-15T10:58:25.5989403+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e3298078-5bb4-4c76-aa06-4710368a3a9b">
+    </UnitTestResult>
+    <UnitTestResult executionId="ac05999d-1abe-4f32-a7a7-e4da84919b71" testId="acd0ae24-533f-7720-1dd6-d650db4774a3" testName="GetDashboardData_ReturnsDashboardData" computerName="DELL" duration="00:00:00.0999416" startTime="2018-05-15T10:58:25.5989403+05:30" endTime="2018-05-15T10:58:25.7083255+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac05999d-1abe-4f32-a7a7-e4da84919b71">
+    </UnitTestResult>
+    <UnitTestResult executionId="c162c4e4-7cb7-4c68-bb07-19bf74bf2239" testId="ab6d50f5-9c03-ff71-2e65-bd44dea972cc" testName="UpdateAssociate_ValidAssociate_ReturnsTrue" computerName="DELL" duration="00:00:00.0190515" startTime="2018-05-15T10:58:25.7083255+05:30" endTime="2018-05-15T10:58:25.7239167+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c162c4e4-7cb7-4c68-bb07-19bf74bf2239">
+    </UnitTestResult>
+    <UnitTestResult executionId="11394a2a-6584-4fa5-a277-20c7388590ac" testId="2ce0f3ad-2670-c327-e69a-3f210ced645b" testName="UpdateAssociateWithSkills_ValidAssociate_ReturnsAllAssociates" computerName="DELL" duration="00:00:00.0273722" startTime="2018-05-15T10:58:25.7239167+05:30" endTime="2018-05-15T10:58:25.7551713+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11394a2a-6584-4fa5-a277-20c7388590ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="bca8cb04-21d5-4687-b52a-e994cf674bd9" testId="1d1ca4ca-f955-2a8f-990b-765bd4ee9c49" testName="ValidateAssociateModel_InvalidAssociateName_ReturnsFalse" computerName="DELL" duration="00:00:00.0149479" startTime="2018-05-15T10:58:25.7551713+05:30" endTime="2018-05-15T10:58:25.7841996+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bca8cb04-21d5-4687-b52a-e994cf674bd9">
+    </UnitTestResult>
+    <UnitTestResult executionId="d7744bc2-89e6-4896-88ac-818b364ae304" testId="e895474f-d779-1ba1-bab7-2128332348ec" testName="ValidateAssociateModel_ValidAssociate_ReturnsTrue" computerName="DELL" duration="00:00:00.0009025" startTime="2018-05-15T10:58:25.7861735+05:30" endTime="2018-05-15T10:58:25.7901827+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d7744bc2-89e6-4896-88ac-818b364ae304">
+    </UnitTestResult>
+    <UnitTestResult executionId="5ab5e617-ef18-4096-ab4a-25fcc24337d6" testId="2ce7b9d7-b0e9-b17a-ea2d-a97cbd24be46" testName="AddNewAssociateSkill_ValidAssociateSkill_ReturnsAllAssociateSkills" computerName="DELL" duration="00:00:00.0205164" startTime="2018-05-15T10:58:25.7911714+05:30" endTime="2018-05-15T10:58:25.8180721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ab5e617-ef18-4096-ab4a-25fcc24337d6">
+    </UnitTestResult>
+    <UnitTestResult executionId="feaa2e37-1059-4951-8b32-1504057b1c64" testId="c04bc30d-5c43-494e-5395-c42bc6ddc841" testName="DeleteAssociateSkill_ValidAssociateSkillId_ReturnsTrue" computerName="DELL" duration="00:00:00.0198385" startTime="2018-05-15T10:58:25.8180721+05:30" endTime="2018-05-15T10:58:25.8336910+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="feaa2e37-1059-4951-8b32-1504057b1c64">
+    </UnitTestResult>
+    <UnitTestResult executionId="5f9835cf-35ef-4542-8b74-33b7dc43f1f5" testId="ce1488fa-d7fb-2b88-72ae-49b9b88f82ca" testName="GetAssociateSkill_PassAssociateSkillId_ReturnsValidAssociateSkill" computerName="DELL" duration="00:00:00.0080997" startTime="2018-05-15T10:58:25.8336910+05:30" endTime="2018-05-15T10:58:25.8492928+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f9835cf-35ef-4542-8b74-33b7dc43f1f5">
+    </UnitTestResult>
+    <UnitTestResult executionId="c0f978d0-89ed-4b07-ab5b-8fc37ee43c33" testId="9222e66d-3286-4a2f-e7a9-952355050de7" testName="GetAssociateSkills_All_ReturnsAllAssociateSkills" computerName="DELL" duration="00:00:00.0070403" startTime="2018-05-15T10:58:25.8492928+05:30" endTime="2018-05-15T10:58:25.8649445+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0f978d0-89ed-4b07-ab5b-8fc37ee43c33">
+    </UnitTestResult>
+    <UnitTestResult executionId="dbd72ec1-ab6a-4106-86e1-035260622849" testId="a28df488-4a7e-e4ab-6475-0ccb532f8a6b" testName="UpdateAssociateSkill_ValidAssociateSkill_ReturnsTrue" computerName="DELL" duration="00:00:00.0591286" startTime="2018-05-15T10:58:25.8649445+05:30" endTime="2018-05-15T10:58:25.9274267+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dbd72ec1-ab6a-4106-86e1-035260622849">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   at SkillsTracker.Tests.AssociateSkillsTests.UpdateAssociateSkill_ValidAssociateSkill_ReturnsTrue() in F:\VisualStudioProjects\FSD\SkillsTracker\SkillsTracker.Tests\AssociateSkillsTests.cs:line 109
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9d967b52-2190-4c07-94e6-6138e425d9e9" testId="77fb1dd2-5f94-e541-8351-5eb6f78c1589" testName="AddNewSkill_ValidSkill_ReturnsAllSkills" computerName="DELL" duration="00:00:00.0095638" startTime="2018-05-15T10:58:25.9274267+05:30" endTime="2018-05-15T10:58:25.9430584+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d967b52-2190-4c07-94e6-6138e425d9e9">
+    </UnitTestResult>
+    <UnitTestResult executionId="5fcd0f44-301c-4dcd-892d-bdd94ec077a0" testId="391f2d5d-16b2-5351-6262-1eb4ea57fb42" testName="DeleteSkill_ValidSkill_ReturnsTrue" computerName="DELL" duration="00:00:00.0173295" startTime="2018-05-15T10:58:25.9430584+05:30" endTime="2018-05-15T10:58:25.9587127+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fcd0f44-301c-4dcd-892d-bdd94ec077a0">
+    </UnitTestResult>
+    <UnitTestResult executionId="b4b747ea-574d-492d-ac99-453af473bef0" testId="ab9f114d-98d2-4549-b338-2e94622363b1" testName="GetSkill_PassSkillId_ReturnsValidSkill" computerName="DELL" duration="00:00:00.0040321" startTime="2018-05-15T10:58:25.9743159+05:30" endTime="2018-05-15T10:58:25.9743159+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b4b747ea-574d-492d-ac99-453af473bef0">
+    </UnitTestResult>
+    <UnitTestResult executionId="465c21bd-a218-43be-b861-0dac3dada53c" testId="04cec116-c529-279e-0c9a-7374418e0659" testName="GetSkills_All_ReturnsAllSkills" computerName="DELL" duration="00:00:00.0025454" startTime="2018-05-15T10:58:25.9743159+05:30" endTime="2018-05-15T10:58:25.9743159+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="465c21bd-a218-43be-b861-0dac3dada53c">
+    </UnitTestResult>
+    <UnitTestResult executionId="0f56f6aa-6ffb-4edb-a35a-c6b2a0bebb9f" testId="4b867f53-baaf-7bbe-29fb-5e396103527c" testName="UpdateSkill_ValidSkill_ReturnsTrue" computerName="DELL" duration="00:00:00.0092830" startTime="2018-05-15T10:58:25.9743159+05:30" endTime="2018-05-15T10:58:25.9899326+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f56f6aa-6ffb-4edb-a35a-c6b2a0bebb9f">
+    </UnitTestResult>
+    <UnitTestResult executionId="238ff4b4-bfaf-4f5f-8aa6-f3f0963c2b54" testId="46bfeaa1-2098-8033-2d5e-9ce64e457c5e" testName="ValidateSkillModel_InvalidSkillName_ReturnsFalse" computerName="DELL" duration="00:00:00.0007800" startTime="2018-05-15T10:58:25.9899326+05:30" endTime="2018-05-15T10:58:25.9899326+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="238ff4b4-bfaf-4f5f-8aa6-f3f0963c2b54">
+    </UnitTestResult>
+    <UnitTestResult executionId="0de1ccbd-b949-4550-ac9d-a51efd049cfa" testId="af56d4fa-750c-9305-1ec2-dc3c995e6453" testName="ValidateSkillModel_ValidSkill_ReturnsTrue" computerName="DELL" duration="00:00:00.0005772" startTime="2018-05-15T10:58:26.0055621+05:30" endTime="2018-05-15T10:58:26.0055621+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0de1ccbd-b949-4550-ac9d-a51efd049cfa">
+    </UnitTestResult>
+  </Results>
+</TestRun>
