@@ -8,6 +8,7 @@ CruiseControl URL on Cloud Machine	: 	http://localhost/ccnet/ViewFarmReport.aspx
 SkillsTracker SPA Production URL	:	http://localhost/SkillsTracker/SPA
 SkillsTracker API Production URL	:	http://localhost/SkillsTracker/API/api
 Project location on Cloud Machine	: 	Desktop\FinalCertification
+Project Design Note					: 	SkillsTracker_DesignNote.pdf (available in the root folder)
 
 
 *******************************************************************************************************************************************
