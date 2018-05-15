@@ -9,3 +9,8 @@
 6. Open "CodeCoverageReport" folder and browse "index.htm" file in a browser.
 7. CodeCoverage results are displayed.
 
+Note: If the test cases are failing, it would be a problem with the connection string. 
+	  Please change the connection string in the App.config file of "SkillsTracker.Tests" project to the below
+	 
+<add name="SkillsTrackerContext" connectionString="Data Source=FSD;Initial Catalog=SkillsTracker;Integrated Security=True" providerName="System.Data.SqlClient" />	 
+
