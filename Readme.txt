@@ -46,7 +46,7 @@ Connection String:
 		a. Double-click on the "Properties" of "SkillsTracker.API" project.
 		b. Click on the "Web" tab on the left-pane.
 		c. Select "IISExpress" under "Servers" section.
-		d. Un-check "Enable Edit and Continue" in the "Debuggers" section.
+		d. Uncheck "Enable Edit and Continue" in the "Debuggers" section.
 7. Right-click on "SkillsTracker.API" project and select "Set as StartUp project"
 8. Click on "Run" to launch the API application.
 9. You can access the API configured in IIS via http://localhost/SkillsTracker.API/api/<apiname>
@@ -62,7 +62,7 @@ Steps to build Angular SPA project
 15. Open "Google Chrome" browser and type in "http://localhost:4200" in the address bar.
 16. The "Skills Tracker" application would be launched.
 
-Note: For the Web API project, if you have changes from localhost to IISExpress, you need to change the 
+Note: For the Web API project, if you have changed from localhost to IISExpress, you need to change the 
 	  "baseApiUrl" key in the "environment.ts" file of the Angular project as follows
 	  
 					export const environment = {
@@ -75,7 +75,7 @@ Miscellaneous Information:
 ------------------------------------------------------------------------------------------
 1. Code Coverage"
 		a. The "SkillsTracker.CodeCoverage" folder has a "Readme.txt" file which includes details on how to run the process.
-		b. I have generated an actual Report in the "CodeCoverageReport" folder.
+		b. I have generated an actual Report which is available in the "CodeCoverageReport" folder.
 
 2. Load Testing"
 		a. The "SkillsTracker.LoadTest" folder has a "Readme.txt" file which includes details on how to run the process.
@@ -83,7 +83,7 @@ Miscellaneous Information:
 		
 3. PerformanceTest Testing:
 		a. The "SkillsTracker.NBench" folder has a "Readme.txt" file which includes details on how to run the process.
-		b. I have generated an actual PerformanceTest Report in the "PerformanceReport" folder.
+		b. I have generated an actual Performance Test Report which is available in the "PerformanceReport" folder.
 
 3. Continuous Integration:
 		a. The "SkillsTracker.Build" folder has a "Readme.txt" file which includes details on the build process.
